@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    box-sizing: border-box;
+    padding: 0 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+.container .logo {
+    height: 21px;
+}
+.container .navlist {
+    display: flex;
+    flex-direction: row;
+    margin-left: 6vw;
+}
+.container .navlist li {
+    display: inline;
+    margin-right: 45px;
+    color: var(--color-blue-dark);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+.leftarea {
+    display: flex;
+    align-items: center;
+}
+.rightarea button {
+    margin-left: 30px;
+}
