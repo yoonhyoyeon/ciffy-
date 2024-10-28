@@ -18,10 +18,13 @@
 .container .navlist li {
     display: inline;
     margin-right: 45px;
-    color: var(--color-blue-dark);
+    color: var(--color-blue-3);
     font-weight: 600;
     font-size: 16px;
     cursor: pointer;
+}
+.container .navlist .active {
+    color: var(--color-blue-2);
 }
 .leftarea {
     display: flex;

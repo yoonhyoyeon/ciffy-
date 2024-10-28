@@ -5,8 +5,14 @@
 
     --color-blue-0: #96A4FF;
     --color-blue-1: #6178FA;
+    --color-blue-1-opacity-10: rgba(97,120, 250, 0.1);
+    --color-blue-1-opacity-30: rgba(97,120, 250, 0.3);
     --color-blue-2: #3447B7;
     --color-blue-3: #06003A;
+    
+
+    --color-purple: #B132FF;
+    --color-gray: #abadbb;
 
     --color-bg-start: #F1F2F8;
     --color-bg-end: #E4E8FE;

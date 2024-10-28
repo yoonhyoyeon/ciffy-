@@ -7,7 +7,6 @@ const Button = ({size, customStyles, onClick, children}) => {
         else if(size==="large") return { width: '240px', height: '82px', fontSize: '25px', borderRadius: '15px'};
         else return { width: '150px', height: '60px', fontSize: '18px' };
     }
-    console.log(sizeStyle());
     return (
         <button className={styles.btn} style={{...customStyles, ...sizeStyle()}} onClick={onClick}>{children}</button>
     )
