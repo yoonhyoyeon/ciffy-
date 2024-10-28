@@ -1,9 +1,7 @@
-"use client"
-import { useState } from "react";
 import styles from './index.module.css';
 
-const Question = ({number, question}) => {
-    const [score, setScore] = useState(null);
+const Question = ({score, setScore, number, question}) => {
+
     return (
         <div className={styles.container}>
             <h3>{number}</h3>
