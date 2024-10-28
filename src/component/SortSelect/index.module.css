@@ -1,0 +1,9 @@
+.select {
+    padding: 10px;
+    color: #6178FA;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    border: 0;
+    cursor: pointer;
+}

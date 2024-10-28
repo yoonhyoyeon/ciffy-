@@ -1,0 +1,45 @@
+.container {
+    background-color: #F9FAFE;
+    border-radius: 10px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+.container h1 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: var(--color-blue-4);
+    margin: 0;
+}
+.container h3 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--color-blue-gray);
+    margin: 8px 0;
+}
+.container .off {
+    width: 130px;
+    height: 19px;
+    background-image: url('/images/star_off.png');
+}
+.container .off .on {
+    height: 20px;
+    background-image: url('/images/star_on.png');
+}
+.container .preview_wrap {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--color-blue-3);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.container .preview_wrap p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+}

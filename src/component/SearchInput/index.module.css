@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+.container input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 60px 20px 20px;
+    background-color: var(--color-opacity-0);
+    border: 2px solid var(--color-blue-1-opacity-30);
+    border-radius: 10px;
+
+    font-family: 'Pretendard';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--color-blue-3);
+
+    /* Rectangle 23 */
+}
+.container input:focus {
+    border-color: var(--color-blue-2);
+}
+.container input::placeholder {
+    color: var(--color-blue-gray);
+}
+.container img {
+    height: 50%;
+    margin-right: 20px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
