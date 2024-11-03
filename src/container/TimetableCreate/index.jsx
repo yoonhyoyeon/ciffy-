@@ -1,11 +1,16 @@
 "use client"
 import Question from '@/component/Question';
 import styles from './index.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const TimetableCreate = () => {
-    const questions = ['나는 팀플을 선호한다.', '나는 시험이 많은 과목을 선호한다.', '나는 아침 강의를 선호한다.']
-    const [ scores, setScores ] = useState([null, null, null]);
+    const questions = ['나는 팀플을 선호한다.', '나는 시험이 많은 과목을 선호한다.', '시험보단 과제로 평가가 되었으면 좋겠다.', '성적을 채워주시는 교수님이 좋다.', '시험은 적을수록 좋다.', '출결을 호명하지 않는 수업이 좋다.', '영어 수업을 선호한다.', '후기가 많은 과목이 좋다.' ,'졸업을 위한 필수 과목이 많았으면 좋겠다.', '교양이 많았으면 좋겠다.', '시험이 어려운 수업이 좋다.']
+    const [ scores, setScores ] = useState([]);
+    useEffect(() => {
+        const init_scores=[];
+        questions.filter(() => init_scores.push(null));
+        setScores(init_scores);
+    }, []);
     const setScore = (i, n) => {
         let newScore = [...scores];
         newScore[i] = n;

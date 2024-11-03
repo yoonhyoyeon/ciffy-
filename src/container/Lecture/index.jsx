@@ -35,11 +35,11 @@ const Lecture = () => {
                 </div>
                 <div className={styles.item_wrap}>
                     <ReviewItem name="수요집현강좌" professor="이석배" rating={4.5} preview="보고서 시간 맞춰서 제출하고 출튀만 안 하면 안정적으로 통과 가능하다. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인."/>
-                    <ReviewItem name="수요집현강좌" professor="이석배" rating={4.1} preview="보고서 시간 맞춰서 제출하고 출튀만 안 하면 안정적으로 통과 가능하다. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인"/>
-                    <ReviewItem name="수요집현강좌" professor="이석배" rating={2.8} preview="보고서 시간 맞춰서 제출하고 출튀만 안 하면 안정적으로 통과 가능하다. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인"/>
-                    <ReviewItem name="수요집현강좌" professor="이석배" rating={3.2} preview="보고서 시간 맞춰서 제출하고 출튀만 안 하면 안정적으로 통과 가능하다. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인"/>
-                    <ReviewItem name="수요집현강좌" professor="이석배" rating={1.5} preview="보고서 시간 맞춰서 제출하고 출튀만 안 하면 안정적으로 통과 가능하다. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인"/>
-                    <ReviewItem name="수요집현강좌" professor="이석배" rating={4.5} preview="보고서 시간 맞춰서 제출하고 출튀만 안 하면 안정적으로 통과 가능하다. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인"/>
+                    <ReviewItem name="환경화학" professor="정슬기" rating={4.1} preview="화학을 잘 못하는 저도 잘 이해할 수 있게 설명도 너무 잘해주시고 ppt도 이해가 잘돼서 좋았어요!! 화학을 잘 못하는 저도 잘 이해할 수 있게 설명도 너무 잘해주시고 ppt도 이해가 잘돼서 좋았어요!!"/>
+                    <ReviewItem name="일본어1" professor="윤석임" rating={2.8} preview="과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것  과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것 "/>
+                    <ReviewItem name="한국현대사의이해" professor="김유진" rating={3.2} preview="보고서 시간 맞춰서 제출하고 출튀만 안 하면 안정적으로 통과 가능하다. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인"/>
+                    <ReviewItem name="유체역학" professor="이민형" rating={1.5} preview="보고서 시간 맞춰서 제출하고 출튀만 안 하면 안정적으로 통과 가능하다. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인"/>
+                    <ReviewItem name="건축기계설비시스템" professor="성민기" rating={4.5} preview="보고서 시간 맞춰서 제출하고 출튀만 안 하면 안정적으로 통과 가능하다. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인"/>
                     <ReviewItem name="수요집현강좌" professor="이석배" rating={4.5} preview="보고서 시간 맞춰서 제출하고 출튀만 안 하면 안정적으로 통과 가능하다. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인"/>
                     <ReviewItem name="수요집현강좌" professor="이석배" rating={4.5} preview="보고서 시간 맞춰서 제출하고 출튀만 안 하면 안정적으로 통과 가능하다. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인"/>
                     <ReviewItem name="수요집현강좌" professor="이석배" rating={4.5} preview="보고서 시간 맞춰서 제출하고 출튀만 안 하면 안정적으로 통과 가능하다. 유체크 이의신청 반영 절대 안 해주시니 출결은 본인"/>

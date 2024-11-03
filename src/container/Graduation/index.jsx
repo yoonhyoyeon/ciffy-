@@ -1,7 +1,15 @@
+"use client"
 import styles from './index.module.css';
 import GraduationProgressbar from '@/component/GraduationProgressbar';
+import { CircularProgressbar, buildStyles } from '@/component/CircularProgressbar';
+import '@/component/CircularProgressbar/styles.css';
+import { useEffect, useState } from 'react';
 
 const Graduation = () => {
+    const [value, setValue] = useState(0);
+    useEffect(() => {
+        setValue(66);
+    }, [])
     const data = [
         {
             title: '전체',
@@ -28,6 +36,11 @@ const Graduation = () => {
     return (
         <div>
             <h1>졸업요건 분석</h1>
+            <div style={{ width: 300, height: 300 }}>
+                <CircularProgressbar strokeWidth={6.5} value={value} text={value+'%'}styles={buildStyles({ pathTransitionDuration: 1})}>
+                </CircularProgressbar>
+            </div>
+            
             { data.map((v, i) => <GraduationProgressbar data={v} key={i} />) }
         </div>
     );
