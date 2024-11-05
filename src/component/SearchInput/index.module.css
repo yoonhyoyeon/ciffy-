@@ -17,14 +17,12 @@
     font-size: 16px;
     line-height: 120%;
     color: var(--color-blue-3);
-
-    /* Rectangle 23 */
 }
 .container input:focus {
     border-color: var(--color-blue-2);
 }
 .container input::placeholder {
-    color: var(--color-blue-gray);
+    color: var(--color-txt-gray);
 }
 .container img {
     height: 50%;

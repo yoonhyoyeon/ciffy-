@@ -1,29 +1,31 @@
-"use client"
-
 import styles from './index.module.css';
-import { CircularProgressbar, buildStyles } from '@/component/CircularProgressbar';
+import { CircularProgressbarWithChildren, buildStyles } from '@/component/CircularProgressbar';
 import '@/component/CircularProgressbar/styles.css';
 import Button from '@/component/Button';
-import { useRef, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import CountUp from 'react-countup';
 
 const TotalGraduate = ({data, max}) => {
-    const value = useRef(0);
+    const [value, setValue] = useState(0);
     useEffect(() => {
-        value.current = Math.floor(data/max*100);
-    }, []);
+        setValue(Math.round(data/max*100));
+    }, [data, max]);
     return (
-        <div>
-            <div>
+        <div className={styles.container}>
+            <div className={styles.leftArea}>
                 <div>
                     <h1>전체</h1>
-                    <div>총 기준 학점 <span>{data}</span></div>
-                    <div>총 이수 학점 <span>{max}</span></div>
-                    <Button size="large">기이수 성적표 업로드</Button>
+                    <h3>총 기준 학점 <span>{data}</span></h3>
+                    <h3>총 이수 학점 <span>{max}</span></h3>
                 </div>
-                <div style={{ width: 300, height: 300 }}>
-                    <CircularProgressbar strokeWidth={6.5} value={value.current} text={value.current+'%'}styles={buildStyles({ pathTransitionDuration: 1})}>
-                    </CircularProgressbar>
+                <div>
+                    <Button isShadow size="medium">기이수 성적표 업로드</Button>
                 </div>
+            </div>
+            <div className={styles.rightArea}>
+                <CircularProgressbarWithChildren strokeWidth={6.5} value={value} styles={buildStyles({ pathTransitionDuration: 1})}>
+                    <div><CountUp className={styles.CountUp} end={value} duration={1}/><span>%</span></div>
+                </CircularProgressbarWithChildren>
             </div>
         </div>
     );

@@ -1,14 +1,17 @@
 .container {
     width: 82%;
     min-height: calc(100vh - 70px);
-    margin: 60px auto 0 auto;
+    margin: 50px auto 0 auto;
     box-sizing: border-box;
     background-color: var(--color-white);
-    padding: 0 5.2% 50px 5.2%;
+    padding: 40px 5.2%;
     background-color: var(--color-white);
     border-radius: 30px;
     margin-bottom: 60px;
 }
 .title {
-    
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: 0.32px;
+    color: var(--color-blue-2);
 }

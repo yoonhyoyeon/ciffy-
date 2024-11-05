@@ -10,7 +10,7 @@ const Home = () => {
             <h1>시간표의 새 패러다임, <span>시피</span>를 소개합니다</h1>
             <img src="/images/timetable.png" />
             <Link href="/timetable/create">
-                <Button size="large">시간표 짜기</Button>
+                <Button isShadow size="large">시간표 짜기</Button>
             </Link>
         </div>
     </div>

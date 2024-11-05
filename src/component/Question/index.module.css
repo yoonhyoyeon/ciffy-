@@ -13,7 +13,7 @@
 }
 .container h1 {
     font-weight: 600;
-    font-size: 30px;
+    font-size: 24px;
     line-height: 150%;
     color: var(--color-blue-2);
     margin-bottom: 60px;
@@ -26,7 +26,7 @@
 .container .input_wrap h4 {
     width: 120px;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 150%;
 }
 .container .input_wrap h4:first-child {
