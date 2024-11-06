@@ -1,4 +1,3 @@
-"use client"
 import styles from './index.module.css';
 
 const Question = ({score, setScore, number, question}) => {

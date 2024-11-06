@@ -1,3 +1,4 @@
+"use client"
 import styles from './index.module.css';
 import { CircularProgressbarWithChildren, buildStyles } from '@/component/CircularProgressbar';
 import '@/component/CircularProgressbar/styles.css';
