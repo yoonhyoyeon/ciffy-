@@ -5,8 +5,10 @@ import '@/component/CircularProgressbar/styles.css';
 import Button from '@/component/Button';
 import { useEffect, useState } from 'react';
 import CountUp from 'react-countup';
+import { GraduationTitle } from '@/constants';
 
-const TotalGraduate = ({data, max}) => {
+const TotalGraduate = ({dataobj}) => {
+    const { data, max, id } = dataobj;
     const [value, setValue] = useState(0);
     useEffect(() => {
         setValue(Math.round(data/max*100));
@@ -15,9 +17,9 @@ const TotalGraduate = ({data, max}) => {
         <div className={styles.container}>
             <div className={styles.leftArea}>
                 <div>
-                    <h1>전체</h1>
-                    <h3>총 기준 학점 <span>{data}</span></h3>
-                    <h3>총 이수 학점 <span>{max}</span></h3>
+                    <h1>{GraduationTitle[id]}</h1>
+                    <h3>총 기준 학점 <span>{max}</span></h3>
+                    <h3>총 이수 학점 <span>{data}</span></h3>
                 </div>
                 <div>
                     <Button isShadow size="medium">기이수 성적표 업로드</Button>
