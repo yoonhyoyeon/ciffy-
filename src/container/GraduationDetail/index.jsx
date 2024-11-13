@@ -31,7 +31,7 @@ const GraduationDetail = ({title}) => {
     ]
     return (
         <div className={styles.container}>
-            <Link href="/graduation"><img className={styles.close_btn} src="/images/Xicon.png" /></Link>
+            <Link href="/graduation"><img className={styles.close_btn} src="/images/x-icon.png" /></Link>
             <h1 className={styles.title}>{title}</h1>
             <h2 className={styles.table_title}>필수과목</h2>
             <Table data={data} />

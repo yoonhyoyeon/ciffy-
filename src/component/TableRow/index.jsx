@@ -10,7 +10,7 @@ const TableRow = ({code, name, type, sector, credit, checked}) => {
             <div className={styles.cell}>{credit}</div>
             <div className={styles.cell}>
                 <div className={styles.checked_wrap}>
-                    {checked ? <div className={styles.checked}></div> : null}
+                    {checked ? <div className={styles.checked}><img className={styles.icon} src="/images/checked-icon.png" /></div> : null}
                 </div>
             </div>
         </div>
