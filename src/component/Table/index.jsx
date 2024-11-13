@@ -1,7 +1,6 @@
 import styles from './index.module.css';
-import Table from '@/component/Table';
 
-const GraduationDetail = ({id, title}) => {
+const Table = ({data}) => {
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>{title}</h1>
@@ -11,4 +10,4 @@ const GraduationDetail = ({id, title}) => {
     );
 }
 
-export default GraduationDetail;
+export default Table;
