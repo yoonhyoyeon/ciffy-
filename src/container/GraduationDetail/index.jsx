@@ -1,6 +1,6 @@
+"use client"
 import Table from '@/component/Table';
 import styles from './index.module.css';
-import Link from 'next/link';
 
 const GraduationDetail = ({title}) => {
     const data = [
@@ -31,7 +31,7 @@ const GraduationDetail = ({title}) => {
     ]
     return (
         <div className={styles.container}>
-            <Link href="/graduation"><img className={styles.close_btn} src="/images/x-icon.png" /></Link>
+            <img onClick={() => history.back()} className={styles.close_btn} src="/images/x-icon.png" />
             <h1 className={styles.title}>{title}</h1>
             <h2 className={styles.table_title}>필수과목</h2>
             <Table data={data} />

@@ -28,9 +28,9 @@ const Navigation = () => {
             <div className={styles.leftarea}>
                 <Link href="/"><img className={styles.logo} src="/images/logo.png" /></Link>
                 <ul className={styles.navlist}>
-                    <Link href="/timetable/create"><li className={path==='/timetable/create'?styles.active:null}>시간표짜기</li></Link>
-                    <Link href="/lecture"><li className={path==='/lecture'?styles.active:null}>강의후기</li></Link>
-                    <Link href="/graduation"><li className={path==='/graduation'?styles.active:null}>졸업요건분석</li></Link>
+                    <Link href="/timetable/create/survey"><li className={path.startsWith('/timetable/create')?styles.active:null}>시간표짜기</li></Link>
+                    <Link href="/lecture"><li className={path.startsWith('/lecture')?styles.active:null}>강의후기</li></Link>
+                    <Link href="/graduation"><li className={path.startsWith('/graduation')?styles.active:null}>졸업요건분석</li></Link>
                 </ul>
             </div>
             <div className={styles.rightarea}>

@@ -5,6 +5,9 @@
     box-sizing: border-box;
     border-bottom: 2px solid var(--color-blue-1-opacity-10);
 }
+.container:last-of-type {
+    border: 0;
+}
 .container h3 {
     font-weight: 700;
     font-size: 24px;

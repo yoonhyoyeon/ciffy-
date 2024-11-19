@@ -58,3 +58,12 @@ input:focus, select:focus {
     outline: none !important;
     box-shadow: none !important;
 }
+.slick-list {
+    overflow: visible!important;
+}
+.slick-prev, .slick-next  {
+    z-index: 100;
+}
+.slick-dots {
+    bottom: -40px!important;
+}

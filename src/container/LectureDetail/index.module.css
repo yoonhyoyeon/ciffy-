@@ -18,17 +18,3 @@
     top: 30px;
     cursor: pointer;
 }
-.container .title {
-    color: var(--color-blue-4);
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 120%;
-    margin: 0;
-    margin-bottom: 50px;
-}
-.container .table_title {
-    font-weight: 600;
-    font-size: 18px;
-    color: var(--color-blue-3);
-    margin: 20px;
-}

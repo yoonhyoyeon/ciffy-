@@ -2,6 +2,7 @@
     --color-opacity-0: rgba(0,0,0,0);
     --color-white: #ffffff;
     --color-black: #000000;
+    --color-gray: #E5E5E5;
 
     --color-txt-gray: #B4B2CA;
     --color-blue-gray: #F9FAFE;
@@ -11,11 +12,14 @@
     --color-blue-1-opacity-10: rgba(97,120, 250, 0.1);
     --color-blue-1-opacity-30: rgba(97,120, 250, 0.3);
     --color-blue-1-opacity-50: rgba(97,120, 250, 0.5);
+    --color-blue-1-opacity-80: rgba(97,120, 250, 0.8);
     --color-blue-2: #3447b7;
     --color-blue-2-opacity-30: rgba(52, 71, 183, 0.3);
     --color-blue-3: #06003A;
     --color-blue-3-opacity-40: rgba(6, 0, 58, 0.4);
+    --color-blue-3-opacity-50: rgba(6, 0, 58, 0.5);
     --color-blue-4: #122387;
+    --color-blue-4-opacity-50: rgba(18, 35, 135, 0.5);
     --color-blue-4-opacity-80: rgba(18, 35, 135, 0.8);
     
 
