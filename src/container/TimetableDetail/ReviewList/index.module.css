@@ -1,0 +1,11 @@
+.container {
+    overflow: scroll;
+    white-space: nowrap;
+    overflow-x: auto;
+    height: 240px;
+}
+.container .item {
+    display: inline-block;
+    width: 300px;
+    margin-right: 24px;
+}

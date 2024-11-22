@@ -18,3 +18,16 @@
     top: 30px;
     cursor: pointer;
 }
+.container .title_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.container .title_wrap .text {
+    font-size: 16px;
+    font-weight: 700;
+}
+.container .contents_wrap {
+    display: flex;
+}

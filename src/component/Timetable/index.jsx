@@ -1,7 +1,7 @@
 import styles from './index.module.css';
 import TimetableItem from './TimetableItem';
 
-const Timetable = ({time_data, selected, setSelected}) => {
+const Timetable = ({data, selected, setSelected}) => {
     return (
         <div 
             className={`${styles.container} ${selected ? styles.active : null}`}
@@ -35,7 +35,7 @@ const Timetable = ({time_data, selected, setSelected}) => {
                 <div className={styles.column}>
                     <span className={styles.label}>월</span>
                     {
-                        time_data.mon.map((v, i) => (
+                        data.mon.map((v, i) => (
                             <TimetableItem 
                                 key={i}
                                 data={v}
@@ -46,7 +46,7 @@ const Timetable = ({time_data, selected, setSelected}) => {
                 <div className={styles.column}>
                     <span className={styles.label}>화</span>
                     {
-                        time_data.tue.map((v, i) => (
+                        data.tue.map((v, i) => (
                             <TimetableItem 
                                 key={i}
                                 data={v}
@@ -57,7 +57,7 @@ const Timetable = ({time_data, selected, setSelected}) => {
                 <div className={styles.column}>
                     <span className={styles.label}>수</span>
                     {
-                        time_data.wed.map((v, i) => (
+                        data.wed.map((v, i) => (
                             <TimetableItem 
                                 key={i}
                                 data={v}
@@ -68,7 +68,7 @@ const Timetable = ({time_data, selected, setSelected}) => {
                 <div className={styles.column}>
                     <span className={styles.label}>목</span>
                     {
-                        time_data.thu.map((v, i) => (
+                        data.thu.map((v, i) => (
                             <TimetableItem 
                                 key={i}
                                 data={v}
@@ -79,7 +79,7 @@ const Timetable = ({time_data, selected, setSelected}) => {
                 <div className={styles.column}>
                     <span className={styles.label}>금</span>
                     {
-                        time_data.fri.map((v, i) => (
+                        data.fri.map((v, i) => (
                             <TimetableItem 
                                 key={i}
                                 data={v}
@@ -90,7 +90,7 @@ const Timetable = ({time_data, selected, setSelected}) => {
             </div>
             <div className={styles.online_wrap}>
                 {
-                    time_data.online.map((v, i) => (
+                    data.online.map((v, i) => (
                         <span key={i}>{ v.name }</span>
                     ))
                 }

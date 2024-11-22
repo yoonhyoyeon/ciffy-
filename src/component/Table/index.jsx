@@ -1,5 +1,5 @@
 import styles from './index.module.css';
-import TableRow from '@/component/TableRow';
+import TableRow from './TableRow';
 
 const Table = ({data}) => {
     return (

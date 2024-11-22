@@ -3,7 +3,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Timetable from '@/component/Timetable';
-import { useState } from 'react';
 
 const NextArrow = ({ className, style, onClick }) => {
     return (
@@ -25,17 +24,23 @@ const PrevArrow = ({ className, style, onClick }) => {
         />
     )
 }
-const TimetableSlider = ({ timetables }) => {
-    const [selected, setSelected] = useState(null);
+const TimetableSlider = ({ timetables, selected, setSelected }) => {
     const settings = {
         dots: true,
         infinite: false,
         speed: 500,
-        slidesToScroll: 3,
-        slidesToShow: 3,
+        slidesToScroll: 4,
+        slidesToShow: 4,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         responsive: [
+            {
+                breakpoint: 1280,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                }
+            },
             {
               breakpoint: 1024,
               settings: {
@@ -57,7 +62,7 @@ const TimetableSlider = ({ timetables }) => {
             <Slider {...settings}>
                 {
                     timetables.map((v, i) => (
-                        <div key={i}><Timetable setSelected={() => setSelected(i)} selected={i===selected} time_data={v} /></div>
+                        <div key={i}><Timetable setSelected={() => setSelected(i)} selected={i===selected} data={v} /></div>
                     ))
                 }
             </Slider>

@@ -1,15 +1,19 @@
 "use client";
 
+import Button from '@/component/Button';
 import styles from './index.module.css';
 import LectureInfo from './LectureInfo';
-import LectureReview from './LectureReview';
+import LectureReviewList from './LectureReviewList';
 
 const LectureDetail = ({data}) => {
     return (
         <div className={styles.container}>
             <img onClick={() => history.back()} className={styles.close_btn} src="/images/x-icon.png" />
-            <h1 class={styles.title}>강의 정보</h1>
-            <div class={styles.contents_wrap}>
+            <div className={styles.title_wrap}>
+                <span className={styles.text}>강의 정보</span>
+                <Button size="small" isShadow>후기 작성하기</Button>
+            </div>
+            <div className={styles.contents_wrap}>
                 <LectureInfo 
                     name={data.name}
                     professor={data.professor}
@@ -19,7 +23,7 @@ const LectureDetail = ({data}) => {
                     team={data.team}
                     grade={data.grade}
                 />
-                <LectureReview review={data.review} />
+                <LectureReviewList/>
             </div>
         </div>
     );
