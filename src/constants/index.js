@@ -21,7 +21,7 @@ export const timetableList = [
                 },
             },
             {
-                name: '일본어',
+                name: '일본어2',
                 profeccer: '김영주',
                 classroom: '집502',
                 time: {
@@ -101,7 +101,7 @@ export const timetableList = [
                 },
             },
             {
-                name: '일본어',
+                name: '일본어2',
                 profeccer: '김영주',
                 classroom: '집502',
                 time: {
@@ -181,7 +181,7 @@ export const timetableList = [
                 },
             },
             {
-                name: '일본어',
+                name: '일본어2',
                 profeccer: '김영주',
                 classroom: '집502',
                 time: {
@@ -261,7 +261,7 @@ export const timetableList = [
                 },
             },
             {
-                name: '일본어',
+                name: '일본어2',
                 profeccer: '김영주',
                 classroom: '집502',
                 time: {
@@ -341,7 +341,7 @@ export const timetableList = [
                 },
             },
             {
-                name: '일본어',
+                name: '일본어2',
                 profeccer: '김영주',
                 classroom: '집502',
                 time: {
@@ -421,7 +421,7 @@ export const timetableList = [
                 },
             },
             {
-                name: '일본어',
+                name: '일본어2',
                 profeccer: '김영주',
                 classroom: '집502',
                 time: {
@@ -501,7 +501,7 @@ export const timetableList = [
                 },
             },
             {
-                name: '일본어',
+                name: '일본어2',
                 profeccer: '김영주',
                 classroom: '집502',
                 time: {
@@ -581,7 +581,7 @@ export const timetableList = [
                 },
             },
             {
-                name: '일본어',
+                name: '일본어2',
                 profeccer: '김영주',
                 classroom: '집502',
                 time: {
@@ -661,7 +661,7 @@ export const timetableList = [
                 },
             },
             {
-                name: '일본어',
+                name: '일본어2',
                 profeccer: '김영주',
                 classroom: '집502',
                 time: {

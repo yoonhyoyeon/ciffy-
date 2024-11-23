@@ -18,6 +18,7 @@
     --color-blue-3: #06003A;
     --color-blue-3-opacity-40: rgba(6, 0, 58, 0.4);
     --color-blue-3-opacity-50: rgba(6, 0, 58, 0.5);
+    --color-blue-3-opacity-60: rgba(6, 0, 58, 0.6);
     --color-blue-4: #122387;
     --color-blue-4-opacity-50: rgba(18, 35, 135, 0.5);
     --color-blue-4-opacity-80: rgba(18, 35, 135, 0.8);
@@ -27,6 +28,7 @@
 
     --color-yellow-1: #FFD24A;
     --color-yellow-1-opacity-30: rgba(255, 210, 74, 0.3);
+    --color-yellow-1-opacity-60: rgba(255, 210, 74, 0.6);
     --color-purple: #B132FF;
     --color-gray: #abadbb;
 

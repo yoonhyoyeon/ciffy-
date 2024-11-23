@@ -40,7 +40,13 @@ const LectureFeature = ({review_cnt, assignment, team, grade}) => {
                             <div key={i} className={styles.item}>
                                 <span className={styles.name}>{v}</span>
                                 <div className={styles.progress_wrap}>
-                                    <span>{Math.round(data.value[i]/review_cnt*100)}%</span>
+                                    <span 
+                                        style={{
+                                            color: biggest_index===i ? 'var(--color-blue-1)' : 'var(--color-blue-1-opacity-30)'
+                                        }}
+                                    >
+                                        {Math.round(data.value[i]/review_cnt*100)}%
+                                    </span>
                                     <ProgressBar 
                                         data={data.value[i]} 
                                         max={review_cnt} 
