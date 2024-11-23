@@ -37,7 +37,7 @@ const LectureFeature = ({review_cnt, assignment, team, grade}) => {
                 {
                     data.contents.map((v, i) => {
                         return (
-                            <div className={styles.item}>
+                            <div key={i} className={styles.item}>
                                 <span className={styles.name}>{v}</span>
                                 <div className={styles.progress_wrap}>
                                     <span>{Math.round(data.value[i]/review_cnt*100)}%</span>

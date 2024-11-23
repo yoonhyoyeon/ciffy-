@@ -15,7 +15,8 @@ const getData = async () => {
 
 export const generateMetadata = async ({params}) => {
     const { id } = await params;
-    return { title: `강의후기 - ${await getData(id).name}` };
+    const data = await getData();
+    return { title: `강의후기 - ${data.name}` };
 }
 
 const LectureDetailPage = async ({params}) => {

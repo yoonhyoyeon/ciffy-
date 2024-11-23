@@ -2,3 +2,13 @@
     flex: 1;
     border-right: 2px solid var(--color-bg-start);
 }
+.container .off {
+    width: 130px;
+    height: 19px;
+    background-image: url('/images/star_off.png');
+    transform: scale(1.25) translateX(14px);
+}
+.container .off .on {
+    height: 20px;
+    background-image: url('/images/star_on.png');
+}

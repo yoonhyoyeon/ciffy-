@@ -1,3 +1,12 @@
 .container {
     flex: 2;
 }
+.container .off {
+    width: 130px;
+    height: 19px;
+    background-image: url('/images/star_off.png');
+}
+.container .off .on {
+    height: 20px;
+    background-image: url('/images/star_on.png');
+}
