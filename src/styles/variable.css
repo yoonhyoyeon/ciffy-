@@ -1,8 +1,11 @@
 :root {
     --color-opacity-0: rgba(0,0,0,0);
+    --color-opacity-30: rgba(0,0,0,0.3);
     --color-white: #ffffff;
     --color-black: #000000;
     --color-gray: #E5E5E5;
+    --color-gray-1: #E6E6E6;
+    --color-gray-2: #F7F7F7;
 
     --color-txt-gray: #B4B2CA;
     --color-blue-gray: #F9FAFE;

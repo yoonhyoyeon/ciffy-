@@ -21,8 +21,9 @@ export const generateMetadata = async ({params}) => {
 
 const LectureDetailPage = async ({params}) => {
     const data = await getData();
+    const { id } = await params;
     return (
-        <LectureDetail data={data}/>
+        <LectureDetail data={data} id={id}/>
     )
 }
 

@@ -10,7 +10,7 @@ const LectureRating = ({review_cnt, rating}) => {
             <div className={styles.total_wrap}>
                 <span className={styles.avg}>{avg.toFixed(2)}</span>
                 <div className={styles.off}>
-                    <div style={{width: avg/5*100+'%'}}className={styles.on}></div>
+                    <div style={{width: avg/5*100+'%'}} className={styles.on}></div>
                 </div>
                 <span className={styles.subtxt}>({review_cnt}개의 평가)</span>
             </div>

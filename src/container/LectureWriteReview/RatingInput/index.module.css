@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+.container .off {
+    display: flex;
+    width: 170px;
+    height: 25px;
+    background-image: url('/images/star_off.png');
+    background-size: contain;
+    margin-right: 10px;
+    position: relative;
+}
+.container .off .on {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    background-image: url('/images/star_on.png');
+    background-size: contain;
+}
+.container .off .btn {
+    flex: 1;
+    z-index: 1;
+}
+.container .txt {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-txt-gray);
+}
