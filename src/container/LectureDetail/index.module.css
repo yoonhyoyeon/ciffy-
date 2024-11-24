@@ -6,7 +6,7 @@
     margin: 50px auto 40px auto;
     box-sizing: border-box;
     background-color: var(--color-white);
-    padding: 30px 5.2%;
+    padding: 30px 60px;
     background-color: var(--color-white);
     border-radius: 30px;
     position: relative;
@@ -32,4 +32,15 @@
 .container .contents_wrap {
     display: flex;
     height: calc(100% - 58px);
+}
+@media screen and (max-width:1120px) {
+    .container {
+        width: 95%;
+    }
+}
+@media screen and (max-width:767px) {
+    .container .contents_wrap {
+        flex-direction: column;
+        overflow-y: auto;
+    }
 }

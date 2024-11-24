@@ -24,6 +24,7 @@
     font-weight: 600;
     color: var(--color-blue-0);
     margin: 0;
+    text-align: center;
 }
 .container .contents {
     width: 100%;

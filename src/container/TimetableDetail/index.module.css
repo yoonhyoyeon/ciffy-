@@ -31,3 +31,16 @@
     margin-top: 30px;
     margin-bottom: 20px;
 }
+
+@media screen and (max-width:1023px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        padding: 30px;
+    }
+    .container .left_area {
+        flex: none;
+        width: 50%;
+        margin: 50px auto;
+    }
+}

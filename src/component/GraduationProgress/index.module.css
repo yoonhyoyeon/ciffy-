@@ -16,6 +16,7 @@
 .container .title {
     flex: 1;
     color: var(--color-blue-4);
+    margin-right: 8px;
 }
 .container .contents {
     flex: 1;

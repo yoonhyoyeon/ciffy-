@@ -4,6 +4,7 @@
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -28,6 +29,7 @@
 }
 .container .right {
     width: 140px;
+    margin-left: 20px;
 }
 .container .right .txt_wrap {
     display: flex;
@@ -44,4 +46,10 @@
     font-size: 20px;
     color: var(--color-blue-4);
     font-weight: 700;
+}
+
+@media screen and (max-width:1023px) {
+    .container {
+        width: 100%;
+    }
 }

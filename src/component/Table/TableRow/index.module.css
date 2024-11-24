@@ -2,6 +2,7 @@
     color: var(--color-blue-3);
     font-size: 14px;
     width: 100%;
+    min-width: 572px;
     height: 50px;
     display: flex;
     align-items: center;

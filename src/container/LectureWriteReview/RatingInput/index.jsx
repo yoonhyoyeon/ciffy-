@@ -37,7 +37,7 @@ const RatingInput = ({rating, setRating}) => {
                 <div style={{width: rating/5*100+'%'}} className={styles.on}></div>
             </div>
             {
-                rating!==null ? <span className={styles.txt}>{rating}점</span> : null
+                rating!==0 ? <span className={styles.txt}>{rating}점</span> : null
             }
         </div>
     )

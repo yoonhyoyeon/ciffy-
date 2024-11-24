@@ -74,3 +74,13 @@
 .container .row .item .contents_input::placeholder {
     color: var(--color-opacity-30);
 }
+@media screen and (max-width:767px) {
+    .container .row:nth-of-type(2) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .container .row:nth-of-type(2) .item {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

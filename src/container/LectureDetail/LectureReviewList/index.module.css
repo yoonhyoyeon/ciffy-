@@ -35,3 +35,8 @@
     font-weight: 500;
     line-height: 140%;
 }
+@media screen and (max-width:767px) {
+    .container {
+        overflow-y: unset;
+    }
+}

@@ -45,6 +45,7 @@
 }
 
 body {
+    word-break: keep-all;
     font-family: 'Pretendard';
     background: linear-gradient(180deg, var(--color-bg-start) 0%, var(--color-bg-end) 100%) no-repeat;
     margin: 0;
