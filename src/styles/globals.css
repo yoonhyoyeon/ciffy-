@@ -45,6 +45,7 @@
 }
 
 body {
+    word-break: keep-all;
     font-family: 'Pretendard';
     background: linear-gradient(180deg, var(--color-bg-start) 0%, var(--color-bg-end) 100%) no-repeat;
     margin: 0;
@@ -57,4 +58,13 @@ a {
 input:focus, select:focus {
     outline: none !important;
     box-shadow: none !important;
+}
+.slick-list {
+    overflow: visible!important;
+}
+.slick-prev, .slick-next  {
+    z-index: 100;
+}
+.slick-dots {
+    bottom: -40px!important;
 }

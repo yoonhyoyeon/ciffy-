@@ -3,6 +3,10 @@
     border-radius: 10px;
     padding: 40px;
     box-sizing: border-box;
+    transition: .2s ease background-color;
+}
+.container:hover {
+    background-color: var(--color-blue-gray-focus);
 }
 .container h1 {
     font-weight: 600;
@@ -37,6 +41,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    white-space: initial;
 }
 .container .preview_wrap p {
     font-weight: 400;

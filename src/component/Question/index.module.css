@@ -5,6 +5,9 @@
     box-sizing: border-box;
     border-bottom: 2px solid var(--color-blue-1-opacity-10);
 }
+.container:last-of-type {
+    border: 0;
+}
 .container h3 {
     font-weight: 700;
     font-size: 24px;
@@ -19,9 +22,11 @@
     margin-bottom: 60px;
 }
 .container .input_wrap {
+    max-width: 860px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin: 0 auto;
 }
 .container .input_wrap h4 {
     width: 120px;
@@ -43,7 +48,6 @@
     background-color: var(--color-blue-1);
     opacity: .1;
     cursor: pointer;
-    margin: 0 30px;
     transition: .3s ease;
 }
 .container .input_wrap .radio:hover {
@@ -65,4 +69,38 @@
 }
 .container .input_wrap .radio.active {
     opacity: 1;
+}
+
+@media screen and (max-width:1023px) {
+    .container {
+        padding-bottom: 100px;
+    }
+    .container .input_wrap {
+        position: relative;
+    }
+    .container .input_wrap h4 {
+        width: auto;
+        position: absolute;
+        top: 100%;
+    }
+    .container .input_wrap h4:first-of-type {
+        left: 0;
+    }
+    .container .input_wrap h4:last-of-type  {
+        right: 0;
+    }
+}
+@media screen and (max-width:767px) {
+    .container .input_wrap .radio {
+        width: 50px;
+        height: 50px;
+    }
+    .container .input_wrap .radio:nth-of-type(2n) {
+        width: 40px;
+        height: 40px;
+    }
+    .container .input_wrap .radio:nth-of-type(3n) {
+        width: 35px;
+        height: 35px;
+    }
 }

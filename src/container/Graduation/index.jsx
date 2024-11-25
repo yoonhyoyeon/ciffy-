@@ -8,7 +8,7 @@ const Graduation = ({data}) => {
         <div className={styles.container}>
             <h1 className={styles.title}>졸업요건 분석</h1>
             <TotalGraduate dataobj={data[0]}/>
-            { data.map((v, i) => i!==0 ? (<Link key={i} href={`/graduation/detail/${v.id}`}><GraduationProgress data={v} /></Link>) : null) }
+            { data.map((v, i) => i!==0 ? (<Link href={`/graduation/detail/${v.id}`} key={i}><GraduationProgress data={v} /></Link>) : null) }
         </div>
     );
 }

@@ -49,4 +49,32 @@
     font-weight: 700;
     color: var(--color-blue-4);
 }
-
+@media screen and (max-width:1023px) {
+    .container .rightArea {
+        width: 240px;
+    }
+    .container .leftArea Button {
+        padding-left: 30px!important;
+        padding-right: 30px!important;
+    }
+}
+@media screen and (max-width:700px) {
+    .container .rightArea {
+        width: 160px;
+    }
+    .container .rightArea .CountUp {
+        font-size: 28px;
+    }
+    .container .rightArea span {
+        font-size: 24px;
+    }
+    .container .leftArea Button {
+        font-size: 18px!important;
+    }
+}
+@media screen and (max-width:550px) {
+    .container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}

@@ -4,7 +4,7 @@ export const metadata = {
   title: 'Home'
 }
 
-const HomePage = () => {
+const HomePage = async() => {
   return <Home />
 };
 

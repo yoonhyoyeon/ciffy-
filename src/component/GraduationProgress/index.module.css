@@ -8,15 +8,19 @@
     margin: 42px 0;
     padding: 40px 5%;
     box-sizing: border-box;
+    transition: .2s ease background-color;
+}
+.container:hover {
+    background-color: var(--color-blue-gray-focus);
 }
 .container .title {
     flex: 1;
     color: var(--color-blue-4);
+    margin-right: 8px;
 }
 .container .contents {
     flex: 1;
     font-weight: 600;
-    color: var(--color-blue-1);
 }
 .container .progress_wrap {
     display: flex;
@@ -26,19 +30,6 @@
 .container .progress_wrap .text {
     font-size: 18px;
     color: var(--color-blue-1-opacity-50);
+    opacity: .5;
     margin-right: 20px;
-}
-
-.container .progress_wrap .progress_bg {
-    flex: 1;
-    height: 14px;
-    background-color: var(--color-white);
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
-    border-radius: 7px;
-}
-.container .progress_wrap .progress_bar {
-    background-color: var(--color-blue-1);
-    height: 14px;
-    border-radius: 7px;
-    transition: width ease 1s;
 }

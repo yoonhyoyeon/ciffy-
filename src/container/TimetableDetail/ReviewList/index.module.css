@@ -1,0 +1,9 @@
+.container {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+.container .item {
+    display: inline-block;
+    width: 300px;
+    margin-right: 24px;
+}
