@@ -1,24 +1,26 @@
 "use client"
-
+import styles from './index.module.css';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Button from '@/component/Button';
-import styles from './index.module.css';
-import { useEffect, useState } from 'react';
+import LoginPopup from '@/component/LoginPopup';
 
 const Navigation = () => {
     const path = usePathname();
     const [background, setBackground] = useState(false); 
     const [mobile_opened, setMobile_opened] = useState(false);
+    const [loginOpened, setLoginOpened] = useState(false);
     const backgroundStyle = {
         backgroundColor: 'var(--color-white)',
         boxShadow: '2px 4px 4px rgba(0, 0, 0, 0.1'
     }
+    const openLogin = () => setLoginOpened(true);
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
             if(currentScrollY>0) setBackground(true);
-            else setBackground(false)
+            else setBackground(false);
         }
         handleScroll();
         window.addEventListener('scroll', handleScroll);
@@ -27,7 +29,7 @@ const Navigation = () => {
     return (
         <div style={background ? backgroundStyle : null} className={`${styles.container} ${mobile_opened ? styles.opened : null}`}>
             <div className={styles.mobile_navbar}>
-            <Link href="/"><img className={styles.logo} src="/images/logo.png" /></Link>
+                <Link href="/"><img className={styles.logo} src="/images/logo.png" /></Link>
                 <div
                     className={`${styles.menu_btn} ${mobile_opened ? styles.opened : null}`} 
                     onClick={() => setMobile_opened((prev)=>!prev)}
@@ -46,9 +48,14 @@ const Navigation = () => {
                 </ul>
             </div>
             <div className={styles.rightarea}>
-                <Button size="small" customStyles={{color: "var(--color-blue-3)", backgroundColor: "var(--color-opacity-0)"}}>로그인</Button>
-                <Button size="small" >회원가입</Button>
+                <Button 
+                    size="small"
+                    onClick={openLogin}
+                >
+                    로그인
+                </Button>
             </div>
+            <LoginPopup opened={loginOpened} setOpened={setLoginOpened}/>
         </div>
     );
 }
