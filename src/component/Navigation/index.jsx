@@ -28,6 +28,7 @@ const Navigation = () => {
     }, [])
     return (
         <div style={background ? backgroundStyle : null} className={`${styles.container} ${mobile_opened ? styles.opened : null}`}>
+            { mobile_opened ? <div onClick={() => setMobile_opened((prev)=>!prev)} className={styles.mobile_background}></div> : null}
             <div className={styles.mobile_navbar}>
                 <Link href="/"><img className={styles.logo} src="/images/logo.png" /></Link>
                 <div

@@ -33,3 +33,16 @@
     opacity: .5;
     margin-right: 20px;
 }
+
+@media screen and (max-width: 850px) {
+    .container {
+        flex-direction: column;
+    }
+    .container .contents {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+    .container .progress_wrap .text {
+        font-size: 16px;
+    }
+}

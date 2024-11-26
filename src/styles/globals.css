@@ -68,3 +68,19 @@ input:focus, select:focus {
 .slick-dots {
     bottom: -40px!important;
 }
+
+@media screen and (max-width: 850px) {
+    body {
+        padding-top: 60px;
+    }
+    .slick-prev, .slick-next {
+        position: fixed;
+
+    }
+    .slick-prev {
+        left: 5px!important;
+    }
+    .slick-next {
+        right: 5px!important;
+    }
+}

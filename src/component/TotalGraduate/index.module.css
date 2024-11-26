@@ -76,5 +76,9 @@
     .container {
         flex-direction: column-reverse;
         align-items: center;
+        text-align: center;
+    }
+    .container .rightArea {
+        margin-bottom: 10px;
     }
 }

@@ -27,7 +27,6 @@ const TimetableSelect = () => {
         else {
             setSelected(JSON.parse(window.sessionStorage.getItem('selected')));
         }
-
     }, []);
 
     useEffect(() => {

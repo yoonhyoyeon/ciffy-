@@ -53,3 +53,18 @@
         width: 100%;
     }
 }
+@media screen and (max-width: 850px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .container .left {
+        width: 100%;
+    }
+    .container .right {
+        width: 50%;
+    } 
+    .container .left p {
+        margin-left: 20px;
+    }
+}

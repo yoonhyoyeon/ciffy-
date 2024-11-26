@@ -48,6 +48,9 @@
 }
 
 @media screen and (max-width:767px) {
+    .container {
+        width: 95%;
+    }
     .container .header .input_wrap {
         width: 95%;
     }

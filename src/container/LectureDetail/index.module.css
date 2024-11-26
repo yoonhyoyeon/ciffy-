@@ -43,4 +43,12 @@
         flex-direction: column;
         overflow-y: auto;
     }
+    .container {
+        padding: 60px 5.2% 20px 5.2%;
+        height: auto;
+    }
+    .container .close_btn {
+        top: 20px;
+        right: 20px;
+    }
 }
