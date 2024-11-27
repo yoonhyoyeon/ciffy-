@@ -8,9 +8,9 @@ import { setCookie, getCookie } from 'cookies-next/client';
 const LoginPopup = ({opened, setOpened}) => {
     const [ id, setId ] = useState('');
     const [ pw, setPw ] = useState('');
-    const closePopup = () => setOpened(false);
+
     const submit = async() => {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
+        const response = await fetch('api/login', {
             method: 'POST',
             headers: {
                 accept: 'application/json',
@@ -38,13 +38,11 @@ const LoginPopup = ({opened, setOpened}) => {
             location.reload(true);
         }
     };
-    const hi = () => {
-        console.log(getCookie('access_token'));
-    }
+
     return (
         <Popup opened={opened} setOpened={setOpened}>
             <div className={styles.container}>
-                <img className={styles.logo} src="/images/logo.png" onClick={hi}/>
+                <img className={styles.logo} src="/images/logo.png" />
                 <span className={styles.txt}>대양휴머니티칼리지 사이트에 로그인하여 인증합니다.<br/>(세종대학교 포털 ID/PW와 동일)</span>
                 <Input 
                     value={id}
