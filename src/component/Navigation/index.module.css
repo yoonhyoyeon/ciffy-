@@ -37,6 +37,45 @@
 .rightarea button {
     margin-left: 30px;
 }
+.rightarea .UserDropdown .txt {
+    color: var(--color-blue-1);
+    cursor: pointer;
+}
+.rightarea .UserDropdown .background {
+    position: fixed;
+    width: 100vw;
+    height: calc(100vh - 70px);
+    top: -100%;
+    left: 0;
+    opacity: 0;
+    transition: .3s ease opacity;
+    font-size: 14px;
+    color: var(--color-blue-3);
+}
+.rightarea .UserDropdown .background.opened {
+    top: 70px;
+    opacity:1;
+}
+.rightarea .UserDropdown .background .dropdown_box {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    width: 180px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1)!important;
+}
+.rightarea .UserDropdown .background .dropdown_box .item {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    transition: .3s ease;
+    cursor: pointer;
+}
+.rightarea .UserDropdown .background .dropdown_box .item:hover {
+    background-color: var(--color-blue-gray-focus);
+    color: var(--color-blue-2);
+}
 .container .mobile_navbar {
     display: none;
     justify-content: space-between;
@@ -55,6 +94,9 @@
     width: 30px;
     margin-top: 3px;
     cursor: pointer;
+}
+.container .mobile_background {
+    display: none;
 }
 
 @media screen and (max-width: 850px) {

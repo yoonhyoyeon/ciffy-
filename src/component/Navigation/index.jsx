@@ -1,23 +1,42 @@
 "use client"
 import styles from './index.module.css';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { usePathname } from 'next/navigation';
 import Button from '@/component/Button';
 import LoginPopup from '@/component/LoginPopup';
+import UserDropdown from './UserDropdown';
+import { getCookie } from 'cookies-next/client';
 
 const Navigation = () => {
     const path = usePathname();
     const [background, setBackground] = useState(false); 
     const [mobile_opened, setMobile_opened] = useState(false);
     const [loginOpened, setLoginOpened] = useState(false);
+    const [isAuthorized, setIsAuthorized] = useState(null);
+    const [userinfo, setUserinfo] = useState(null);
+    
     const backgroundStyle = {
         backgroundColor: 'var(--color-white)',
         boxShadow: '2px 4px 4px rgba(0, 0, 0, 0.1'
     }
     const openLogin = () => setLoginOpened(true);
+
+    const getUserInfo = async () => {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user_info`);
+        const result = await response.json();
+        console.log(result);
+    }; // 유저 정보 불러오기 -> api 수정 필요!
+
     useEffect(() => {
-        const handleScroll = () => {
+        if(getCookie('access_token') !== undefined && getCookie('refresh_token') !== undefined) {
+            setIsAuthorized(true);
+        }
+        else {
+            setIsAuthorized(false);
+        } //인증 상태 검사 
+
+        const handleScroll = () => { // 스크롤 관련 이벤트
             const currentScrollY = window.scrollY;
             if(currentScrollY>0) setBackground(true);
             else setBackground(false);
@@ -25,7 +44,8 @@ const Navigation = () => {
         handleScroll();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [])
+    }, []);
+
     return (
         <div style={background ? backgroundStyle : null} className={`${styles.container} ${mobile_opened ? styles.opened : null}`}>
             { mobile_opened ? <div onClick={() => setMobile_opened((prev)=>!prev)} className={styles.mobile_background}></div> : null}
@@ -49,12 +69,20 @@ const Navigation = () => {
                 </ul>
             </div>
             <div className={styles.rightarea}>
-                <Button 
-                    size="small"
-                    onClick={openLogin}
-                >
-                    로그인
-                </Button>
+            <Suspense fallback={<div>loading...</div>}>
+                { isAuthorized===null ? null : isAuthorized ?
+                    <UserDropdown
+                        setBackground={setBackground}
+                    /> :
+                    <Button 
+                        size="small"
+                        onClick={openLogin}
+                    >
+                        로그인
+                    </Button>
+                }
+            </Suspense>
+                
             </div>
             <LoginPopup opened={loginOpened} setOpened={setLoginOpened}/>
         </div>
