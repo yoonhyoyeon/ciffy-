@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SearchInput from "@/component/SearchInput";
 import SortSelect from "@/component/SortSelect";
 import ReviewItem from "@/component/ReviewItem";
@@ -10,6 +10,12 @@ import Link from 'next/link';
 const Lecture = () => {
     const [ value, setValue ] = useState('');
     const [ sort, setSort ] = useState('0');
+    const [ lectures, setLectures ] = useState([]);
+    useEffect(async() => {
+        const response = await fetch('/api/courses');
+        const result = await response;
+        console.log(result);
+    }, []);
     const onSubmit = (value) => {
         console.log(value);
     }
