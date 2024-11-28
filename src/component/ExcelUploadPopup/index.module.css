@@ -1,0 +1,18 @@
+.container {
+    color: var(--color-blue-3);
+    padding: 20px;
+}
+.container h1 {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--color-txt-gray);
+    margin-bottom: 28px;
+}
+.container p {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+.container .sub_txt {
+    color: var(--color-blue-1);
+}

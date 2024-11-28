@@ -49,12 +49,18 @@ const LoginPopup = ({opened, setOpened}) => {
                     onChange={(e) => setId(e.target.value)}
                     type="text"
                     placeholder="아이디"
+                    onKeyPress={(e) => {
+                        if(e.key==='Enter') submit();
+                    }}
                 />
                 <Input 
                     value={pw}
                     onChange={(e) => setPw(e.target.value)}
                     type="password"
                     placeholder="비밀번호"
+                    onKeyPress={(e) => {
+                        if(e.key==='Enter') submit();
+                    }}
                 />
                 <Button size="small" onClick={submit}>로그인</Button>
                 <div className={styles.txt}></div>

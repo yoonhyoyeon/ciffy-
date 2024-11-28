@@ -188,7 +188,7 @@
         text-align: right;
         transition: .3s ease;
     }
-    .container .leftarea .navlist a:hover {
+    .container .leftarea .navlist a:hover, .container .navlist a:has(.active) {
         background-color: var(--color-blue-gray-focus);
     }
     .container .leftarea .logo {

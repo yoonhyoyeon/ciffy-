@@ -6,22 +6,22 @@ import Button from '@/component/Button';
 import { useEffect, useState } from 'react';
 import CountUp from 'react-countup';
 import { GraduationTitle } from '@/constants';
+import ExcelUploadPopup from '@/component/ExcelUploadPopup';
 
 const TotalGraduate = ({dataobj}) => {
     const { data, max, id } = dataobj;
     const [value, setValue] = useState(0);
     const [popup, setPopup] = useState(false);
-    const openPopup = () => {
-        setPopup(true);
-    }
-    const closePopup = () => {
-        setPopup(false);
-    }
+
     useEffect(() => {
         setValue(Math.round(data/max*100));
     }, [data, max]);
     return (
         <div className={styles.container}>
+            <ExcelUploadPopup 
+                opened={popup}
+                setOpened={setPopup}
+            />
             <div className={styles.leftArea}>
                 <div>
                     <h1>{GraduationTitle[id]}</h1>
@@ -29,7 +29,7 @@ const TotalGraduate = ({dataobj}) => {
                     <h3>총 이수 학점 <span>{data}</span></h3>
                 </div>
                 <div>
-                    <Button onClick={openPopup} isShadow size="medium">기이수 성적표 업로드</Button>
+                    <Button onClick={() => setPopup(true)} isShadow size="medium">기이수 성적표 업로드</Button>
                 </div>
             </div>
             <div className={styles.rightArea}>

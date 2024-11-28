@@ -1,6 +1,6 @@
 import styles from './index.module.css';
 
-const Input = ({value, onChange, type, placeholder}) => {
+const Input = ({value, onChange, type, placeholder, onKeyPress}) => {
     return (
         <input 
             className={styles.input}
@@ -8,6 +8,7 @@ const Input = ({value, onChange, type, placeholder}) => {
             onChange={onChange}
             type={type}
             placeholder={placeholder}
+            onKeyPress={onKeyPress}
         />
     )
 }

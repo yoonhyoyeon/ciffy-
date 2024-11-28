@@ -9,6 +9,7 @@
     align-items: center;
     display: none;
     animation: fadeIn .2s ease forwards;
+    z-index: 101;
 }
 .container .background {
     width: 100%;

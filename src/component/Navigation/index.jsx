@@ -1,7 +1,7 @@
 "use client"
 import styles from './index.module.css';
 import Link from 'next/link';
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Button from '@/component/Button';
 import LoginPopup from '@/component/LoginPopup';
@@ -29,6 +29,7 @@ const Navigation = () => {
     }; // 유저 정보 불러오기 -> api 수정 필요!
 
     useEffect(() => {
+        console.log(getCookie('access_token'));
         if(getCookie('access_token') !== undefined && getCookie('refresh_token') !== undefined) {
             setIsAuthorized(true);
         }
@@ -69,7 +70,6 @@ const Navigation = () => {
                 </ul>
             </div>
             <div className={styles.rightarea}>
-            <Suspense fallback={<div>loading...</div>}>
                 { isAuthorized===null ? null : isAuthorized ?
                     <UserDropdown
                         setBackground={setBackground}
@@ -81,8 +81,6 @@ const Navigation = () => {
                         로그인
                     </Button>
                 }
-            </Suspense>
-                
             </div>
             <LoginPopup opened={loginOpened} setOpened={setLoginOpened}/>
         </div>
