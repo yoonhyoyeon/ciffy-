@@ -1,25 +1,21 @@
+"use client"
 import Button from "@/component/Button";
 import styles from './index.module.css';
 import Link from 'next/link';
+import { useSearchParams, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
-const Home = async () => {
-    // const res = await fetch('http://3.208.248.230:3000/api/ask', {
-    //     method: "POST", // *GET, POST, PUT, DELETE 등
-    //     mode: "cors", // no-cors, *cors, same-origin
-    //     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    //     credentials: "same-origin", // include, *same-origin, omit
-    //     headers: {
-    //     "Content-Type": "application/json",
-    //     "kakao-id" : "3800726273"
-    //     // 'Content-Type': 'application/x-www-form-urlencoded',
-    //     },
-    //     redirect: "follow", // manual, *follow, error
-    //     referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    //     body: JSON.stringify({
-    //         "question": "안녕"
-    //     })
-    // });
-    // console.log(await res.json());
+const Home = () => {
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    useEffect(() => {
+        const msg=searchParams.get('alert');
+        console.log(msg);
+        if(msg) {
+            alert(msg);
+            router.push('/');
+        }
+    }, [searchParams]);
     return (
     <div className={styles.container}>
         <div className={styles.contents}>

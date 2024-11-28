@@ -40,14 +40,16 @@ const FileForm = () => {
             encType="multipart/form-data"
             onSubmit={handleSubmit}
         >
-            <input
-                id="excel"
-                name="excel"
-                type="file"
-                accept=".xlsx, .xls, .csv"
-                onChange={handleUpload}
-            />
-            <label for="excel"><img src="/images/file-upload-icon.png"/> 이곳에 엑셀 파일을 놓아주세요.</label>
+            <label htmlFor="excel">
+                <input
+                    id="excel"
+                    name="excel"
+                    type="file"
+                    accept=".xlsx, .xls, .csv"
+                    onChange={handleUpload}
+                />
+                <img src="/images/file-upload-icon.png"/> 
+                이곳에 엑셀 파일을 놓아주세요.</label>
             <Button size="small" >업로드</Button>
         </form>
         
