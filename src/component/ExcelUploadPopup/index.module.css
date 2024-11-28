@@ -12,6 +12,7 @@
 .container p {
     padding: 0 40px;
     box-sizing: border-box;
+    font-weight: 600;
 }
 .container .sub_txt {
     color: var(--color-blue-1);

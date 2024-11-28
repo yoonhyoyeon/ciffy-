@@ -3,8 +3,8 @@ import styles from './index.module.css';
 import Button from '@/component/Button';
 
 const FileForm = () => {
-    const [ uploadedFile,setUploadedFile ] = useState('heelo');
-
+    const [ uploadedFile,setUploadedFile ] = useState(null);
+    const [ focus, setFocus ] = useState(false);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -32,7 +32,13 @@ const FileForm = () => {
         
         setUploadedFile(file);
         console.log(uploadedFile);
-      };
+    };
+    const handleDragEnter = (e) => {
+        setFocus(true);
+    }
+    const handleDragLeave = (e) => {
+        setFocus(false);
+    }
     return (
         <form
             className={styles.form}
@@ -40,7 +46,12 @@ const FileForm = () => {
             encType="multipart/form-data"
             onSubmit={handleSubmit}
         >
-            <label htmlFor="excel">
+            <label 
+                htmlFor="excel"
+                onDragEnter={handleDragEnter}    
+                onDragLeave={handleDragLeave}
+                className={focus||uploadedFile!==null ? styles.focus : null}
+            >
                 <input
                     id="excel"
                     name="excel"
