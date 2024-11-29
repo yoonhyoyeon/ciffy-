@@ -10,7 +10,6 @@ const Home = () => {
     const router = useRouter();
     useEffect(() => {
         const msg=searchParams.get('alert');
-        console.log(msg);
         if(msg) {
             alert(msg);
             router.push('/');

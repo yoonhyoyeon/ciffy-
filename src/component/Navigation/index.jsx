@@ -29,7 +29,6 @@ const Navigation = () => {
     }; // 유저 정보 불러오기 -> api 수정 필요!
 
     useEffect(() => {
-        console.log(getCookie('access_token'));
         if(getCookie('access_token') !== undefined && getCookie('refresh_token') !== undefined) {
             setIsAuthorized(true);
         }

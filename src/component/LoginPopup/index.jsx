@@ -3,51 +3,14 @@ import styles from './index.module.css';
 import Popup from '@/component/Popup';
 import Input from '@/component/Input';
 import Button from '@/component/Button';
-import { setCookie, getCookie } from 'cookies-next/client';
+import { login } from '@/service';
 
 const LoginPopup = ({opened, setOpened}) => {
     const [ id, setId ] = useState('');
     const [ pw, setPw ] = useState('');
 
-    const submit = async() => {
-        const response = await fetch('api/login', {
-            method: 'POST',
-            headers: {
-                'accept': 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `student_id=${id}&password=${pw}`,
-        });
-        const result = await response.json();
-
-        if(!response.ok) { //로그인 실패
-            if(result.detail) {
-                alert('로그인 실패: 아이디 또는 비밀번호를 확인하세요.');
-            }
-            else {
-                alert('로그인 ERROR');
-            }
-        } 
-        else { //로그인 성공
-            const option = {
-                maxAge: 3600 * 24 * 14 //14일
-            }
-            //쿠키에 토큰 저장
-            alert('로그인 성공');
-            /* access_token 발급 */
-            const res_accessToken = await fetch('api/token/refresh', {
-                method: 'POST',
-                headers: {
-                    'accept': 'application/json',
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: `refresh_token=${getCookie('refresh_token')}`,
-            });
-            const result_accessToken = await res_accessToken.json();
-            setCookie('refresh_token', result.refresh_token, option);
-            setCookie('access_token', result_accessToken.access_token, option);
-            location.reload(true);
-        }
+    const submit = () => {
+        login(id, pw);
     };
 
     return (
