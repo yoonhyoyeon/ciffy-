@@ -45,7 +45,7 @@ const LectureFeature = ({review_cnt, assignment, team, grade}) => {
                                             color: biggest_index===i ? 'var(--color-blue-1)' : 'var(--color-blue-1-opacity-30)'
                                         }}
                                     >
-                                        {Math.round(data.value[i]/review_cnt*100)}%
+                                        {review_cnt===0?0:Math.round(data.value[i]/review_cnt*100)}%
                                     </span>
                                     <ProgressBar 
                                         data={data.value[i]} 

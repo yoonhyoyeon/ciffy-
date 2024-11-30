@@ -1,7 +1,7 @@
 import styles from './index.module.css';
-const SortSelect = ({children, sort, setSort}) => {
+const SortSelect = ({children, sort, setSort, disabled}) => {
     return (
-        <select className={styles.select} value={sort} onChange={(e) => { setSort(e.target.value) }}>
+        <select disabled={disabled} className={styles.select} value={sort} onChange={(e) => { setSort(e.target.value) }}>
             {children}
         </select>
     )

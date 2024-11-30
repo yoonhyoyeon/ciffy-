@@ -1,20 +1,8 @@
-"use client"
 import Button from "@/component/Button";
 import styles from './index.module.css';
 import Link from 'next/link';
-import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 const Home = () => {
-    const searchParams = useSearchParams();
-    const router = useRouter();
-    useEffect(() => {
-        const msg=searchParams.get('alert');
-        if(msg) {
-            alert(msg);
-            router.push('/');
-        }
-    }, [searchParams]);
     return (
     <div className={styles.container}>
         <div className={styles.contents}>

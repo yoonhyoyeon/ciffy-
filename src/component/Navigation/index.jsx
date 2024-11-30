@@ -2,20 +2,21 @@
 import styles from './index.module.css';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import Button from '@/component/Button';
 import LoginPopup from '@/component/LoginPopup';
 import UserDropdown from './UserDropdown';
 import { getCookie } from 'cookies-next/client';
 
 const Navigation = () => {
-    const path = usePathname();
     const [background, setBackground] = useState(false); 
     const [mobile_opened, setMobile_opened] = useState(false);
     const [loginOpened, setLoginOpened] = useState(false);
     const [isAuthorized, setIsAuthorized] = useState(null);
     const [userinfo, setUserinfo] = useState(null);
-    
+    const path = usePathname();
+    const searchParams = useSearchParams();
+    const router = useRouter();
     const backgroundStyle = {
         backgroundColor: 'var(--color-white)',
         boxShadow: '2px 4px 4px rgba(0, 0, 0, 0.1'
@@ -27,7 +28,14 @@ const Navigation = () => {
         const result = await response.json();
         console.log(result);
     }; // 유저 정보 불러오기 -> api 수정 필요!
-
+    
+    useEffect(() => {
+        const loginOpen=searchParams.get('loginOpen')??false;
+        if(loginOpen) {
+            setLoginOpened(true);
+            router.push('/');
+        }
+    }, [searchParams]); //
     useEffect(() => {
         if(getCookie('access_token') !== undefined && getCookie('refresh_token') !== undefined) {
             setIsAuthorized(true);
@@ -35,7 +43,8 @@ const Navigation = () => {
         else {
             setIsAuthorized(false);
         } //인증 상태 검사 
-
+    }, [path]);
+    useEffect(() => {
         const handleScroll = () => { // 스크롤 관련 이벤트
             const currentScrollY = window.scrollY;
             if(currentScrollY>0) setBackground(true);

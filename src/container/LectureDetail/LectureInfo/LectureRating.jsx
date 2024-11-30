@@ -2,8 +2,8 @@ import styles from './index.module.css';
 import ProgressBar from '@/component/ProgressBar';
 
 const LectureRating = ({review_cnt, rating}) => {
-    const sum = rating.reduce((acc, cur, i) => acc + cur*(5-i), 0);
-    const avg = sum/review_cnt;
+    const sum = rating.reduce((acc, cur, i) => acc + cur*(i+1), 0);
+    const avg = review_cnt===0?0:sum/review_cnt;
     const biggest_index = rating.indexOf(Math.max(...rating));
     return (
         <div className={styles.LectureRating}>
@@ -18,12 +18,12 @@ const LectureRating = ({review_cnt, rating}) => {
                 rating.map((v, i) => (
                     <div key={i} className={styles.detail_item}>
                         <img src="/images/star_on.png"/>
-                        <span className={styles.txt}>{5-i}</span>
+                        <span className={styles.txt}>{i+1}</span>
                         <div className={styles.progress_wrap}>
                             <span style={{
                                 color: biggest_index===i ? 'var(--color-yellow-1)' : 'var(--color-yellow-1-opacity-60)'
                             }}>
-                                {Math.round(v/review_cnt*100)}%
+                                {review_cnt===0?0:Math.round(v/review_cnt*100)}%
                             </span>
                             <ProgressBar 
                                 data={v} 

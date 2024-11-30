@@ -52,6 +52,16 @@ export const getLecturesData = async () => {
     }
 }
 
+export const getLectureReviews= async (course_id) => {
+    const response = await fetch(`${process.env.API_URL}/api/courses/${course_id}/comments`);
+    const result = await response.json();
+    if(result.status==='success') return result.data;
+    else {
+        console.log('강의 리뷰 불러오기 실패: ', result);
+        return [];
+    }
+}
+
 export const addLectureReview = async (course_id, student_id, review_text, rating, assignment, group_work, grading) => {
     const response = await fetch('/api/course/review', {
         method: 'POST',

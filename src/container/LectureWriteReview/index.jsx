@@ -6,6 +6,7 @@ import Button from '@/component/Button';
 import RatingInput from './RatingInput';
 import CheckboxInput from './CheckboxInput';
 import { addLectureReview } from '@/service';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const LectureWriteReview = ({data, id}) => {
     const [rating, setRating] = useState(0);
@@ -13,17 +14,21 @@ const LectureWriteReview = ({data, id}) => {
     const [team, setTeam] = useState(-1);
     const [grade, setGrade] = useState(-1);
     const [contents, setContents] = useState('');
+    const router = useRouter();
+    const params = useSearchParams();
     const isComplete = rating!==0 && assignment !== -1 && team !== -1 && grade !== -1 && contents !== '';
 
     const submit = () => {
         addLectureReview(id, "21011189", contents, rating, assignment, team, grade);
+        alert('강의가 등록되었습니다.');
+        router.back();
     }
     return (
         <div className={styles.container}>
             <img onClick={() => history.back()} className={styles.close_btn} src="/images/x-icon.png" />
             <div className={styles.title_wrap}>
-                <span className={styles.name}>{data.name}</span>
-                <span className={styles.professor}>{data.professor}</span>
+                <span className={styles.name}>{params.get('name')}</span>
+                <span className={styles.professor}>{params.get('professor')}</span>
             </div>
             <div className={styles.row}>
                 <div className={styles.item}>

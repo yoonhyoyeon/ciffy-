@@ -2,14 +2,16 @@
 import { useState } from 'react';
 import styles from './index.module.css';
 import { deleteCookie } from 'cookies-next/client';
+import { useRouter } from 'next/navigation';
 
 const UserDropdown = ({setBackground}) => {
+    const router = useRouter();
     const [opened, setOpened] = useState(false);
 
-    const sign_out = () => {
+    const sign_out = (e) => {
         deleteCookie('access_token');
         deleteCookie('refresh_token');
-        location.reload(true);
+        router.push('/');
     }
     return (
         <div className={styles.UserDropdown}>
