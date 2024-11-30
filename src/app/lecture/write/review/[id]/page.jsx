@@ -1,5 +1,5 @@
 import LectureWriteReview from '@/container/LectureWriteReview';
-
+import { Suspense } from 'react';
 
 export const generateMetadata = async ({params}) => {
     const { id } = await params;
@@ -9,7 +9,9 @@ export const generateMetadata = async ({params}) => {
 const LectureWriteReviewPage = async ({params}) => {
     const { id } = await params;
     return (
-        <LectureWriteReview id={id}/>
+        <Suspense>
+            <LectureWriteReview id={id}/>
+        </Suspense>
     )
 }
 

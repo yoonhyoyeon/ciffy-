@@ -1,5 +1,6 @@
 import Lecture from '@/container/Lecture';
 import { getLecturesData } from '@/service';
+import { Suspense } from 'react';
 
 export const metadata = {
     title: '강의후기'
@@ -8,11 +9,14 @@ export const metadata = {
 const LecturePage = async () => {
     const lectures_data = await getLecturesData();
     return (
-        <div>
-            <Lecture 
-                lectures_data = {lectures_data}
-            />
-        </div>
+        <Suspense>
+            <div>
+                <Lecture 
+                    lectures_data = {lectures_data}
+                />
+            </div>
+        </Suspense>
+        
     )
 }
 

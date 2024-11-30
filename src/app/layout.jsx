@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import "@/styles/variable.css";
 import Navigation from '@/component/Navigation';
+import { Suspense } from "react";
 
 export const metadata = {
   title: {
@@ -13,7 +14,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Navigation />
+        <Suspense>
+          <Navigation />
+        </Suspense>
         {children}
       </body>
     </html>
