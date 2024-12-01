@@ -3,3 +3,6 @@
     margin-bottom: 60px;
     overflow: visible;
 }
+.container .item {
+    width: 90%!important;
+}

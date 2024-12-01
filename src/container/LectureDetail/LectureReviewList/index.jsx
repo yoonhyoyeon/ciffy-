@@ -11,6 +11,9 @@ const LectureReviewList = ({reviews}) => {
                         key={i}
                         rating={v.rating}
                         contents={v.comment}
+                        assignment={v.assignment}
+                        team={v.group_work}
+                        grade={v.grading}
                     /> 
                 )) : <NoResult />
             }

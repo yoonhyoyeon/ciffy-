@@ -13,7 +13,7 @@ const Navigation = () => {
     const [mobile_opened, setMobile_opened] = useState(false);
     const [loginOpened, setLoginOpened] = useState(false);
     const [isAuthorized, setIsAuthorized] = useState(null);
-    const [userinfo, setUserinfo] = useState(null);
+    const [userinfo, setUserinfo] = useState({});
     const path = usePathname();
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -22,12 +22,6 @@ const Navigation = () => {
         boxShadow: '2px 4px 4px rgba(0, 0, 0, 0.1'
     }
     const openLogin = () => setLoginOpened(true);
-
-    const getUserInfo = async () => {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user_info`);
-        const result = await response.json();
-        console.log(result);
-    }; // 유저 정보 불러오기 -> api 수정 필요!
     
     useEffect(() => {
         const loginOpen=searchParams.get('loginOpen')??false;
@@ -39,6 +33,7 @@ const Navigation = () => {
     useEffect(() => {
         if(getCookie('access_token') !== undefined && getCookie('refresh_token') !== undefined) {
             setIsAuthorized(true);
+            setUserinfo(JSON.parse(localStorage?.getItem('user_info')));
         }
         else {
             setIsAuthorized(false);
@@ -81,6 +76,8 @@ const Navigation = () => {
                 <div className={styles.rightarea}>
                     { isAuthorized===null ? null : isAuthorized ?
                         <UserDropdown
+                            userid={userinfo.id}
+                            username={userinfo.name}
                             setBackground={setBackground}
                         /> :
                         <Button 

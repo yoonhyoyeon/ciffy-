@@ -74,7 +74,9 @@ const TimetableSlider = ({ timetables, selected, setSelected }) => {
             >
                 {
                     timetables.map((v, i) => (
-                        <div key={i}><Timetable setSelected={() => setSelected(i)} selected={i===selected} data={v} /></div>
+                        <div key={i} className={styles.item}>
+                            <Timetable setSelected={() => setSelected(i)} selected={i===selected} data={v} />
+                        </div>
                     ))
                 }
             </Slider>

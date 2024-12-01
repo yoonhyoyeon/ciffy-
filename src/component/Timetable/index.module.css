@@ -1,6 +1,6 @@
 .container {
+    width: 100%;
     background-color: var(--color-white);
-    width: 90%;
     height: 560px;
     box-sizing: border-box;
     padding: 46px 12px 0 46px;
@@ -46,7 +46,7 @@
     align-items: flex-end;
     position: absolute;
     right: 100%;
-    padding-right: 7px;
+    padding-right: 10px;
 }
 .container .timetable_wrap .column {
     flex: 1;
@@ -62,7 +62,7 @@
     color: var(--color-blue-3);
     font-size: 14px;
     bottom: 100%;
-    padding-bottom: 7px;
+    padding-bottom: 10px;
 }
 .container .timetable_wrap .column .item_container {
     width: 100%;

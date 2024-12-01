@@ -9,7 +9,7 @@ const FileForm = () => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('file', uploadedFile);
-        const response = await fetch('api/upload-excel', {
+        const response = await fetch(`api/upload-excel?student_id=${JSON.parse(localStorage?.getItem('user_info')).id}`, {
             method: 'POST',
             headers: {
                 'accept': 'application/json',
@@ -19,10 +19,17 @@ const FileForm = () => {
         const result = await response.json();
         console.log(result);
         if(!response.ok) { 
-            alert(result.detail);
+            if(result.detail.startsWith("Database error: 1062 (23000)")) {
+                alert("기이수 과목이 이미 최신 상태입니다.");
+                location.reload(true);
+            }
+            else {
+                alert("ERROR: 정상적으로 업데이트되지 않았습니다.");
+                console.log(result.detail);
+            }
         } 
         else {
-            alert('정상적으로 업데이트 되었습니다.');
+            alert('정상적으로 업데이트 되었습니다:)');
             location.reload(true);
         }
     }

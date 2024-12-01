@@ -12,6 +12,7 @@ const TimetableSelect = () => {
     const router = useRouter();
     const [ timetables, setTimetables ] = useState([]);
     const [ selected, setSelected ] = useState(null);
+
     useEffect(() => {
         if(!window.sessionStorage.getItem('timetables')) {
             console.log('시간표 데이터가 없어 임시로 박을게요');

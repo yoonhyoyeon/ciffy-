@@ -7,7 +7,7 @@ const ReviewList = () => {
         <div className={styles.container}>
             <div className={styles.list}>
                 <div className={styles.item}>
-                    <Link href="/lecture/detail/123">
+                    <Link href={`/lecture/detail/${8}?name=${"이산 수학 프로그래밍"}&professor=${"김해광"}`}>
                         <ReviewItem 
                             name="일본어2"
                             professor="김영주"
@@ -17,7 +17,7 @@ const ReviewList = () => {
                     </Link>
                 </div>
                 <div className={styles.item}>
-                    <Link href="/lecture/detail/123">
+                    <Link href={`/lecture/detail/${8}?name=${"이산 수학 프로그래밍"}&professor=${"김해광"}`}>
                         <ReviewItem 
                             name="일본어2"
                             professor="김영주"
@@ -27,7 +27,7 @@ const ReviewList = () => {
                     </Link>
                 </div>
                 <div className={styles.item}>
-                    <Link href="/lecture/detail/123">
+                    <Link href={`/lecture/detail/${8}?name=${"이산 수학 프로그래밍"}&professor=${"김해광"}`}>
                         <ReviewItem 
                             name="일본어2"
                             professor="김영주"
@@ -37,7 +37,7 @@ const ReviewList = () => {
                     </Link>
                 </div>
                 <div className={styles.item}>
-                    <Link href="/lecture/detail/123">
+                    <Link href={`/lecture/detail/${8}?name=${"이산 수학 프로그래밍"}&professor=${"김해광"}`}>
                         <ReviewItem 
                             name="일본어2"
                             professor="김영주"
@@ -47,7 +47,7 @@ const ReviewList = () => {
                     </Link>
                 </div>
                 <div className={styles.item}>
-                    <Link href="/lecture/detail/123">
+                    <Link href={`/lecture/detail/${8}?name=${"이산 수학 프로그래밍"}&professor=${"김해광"}`}>
                         <ReviewItem 
                             name="일본어2"
                             professor="김영주"
@@ -57,7 +57,7 @@ const ReviewList = () => {
                     </Link>
                 </div>
                 <div className={styles.item}>
-                    <Link href="/lecture/detail/123">
+                    <Link href={`/lecture/detail/${8}?name=${"이산 수학 프로그래밍"}&professor=${"김해광"}`}>
                         <ReviewItem 
                             name="일본어2"
                             professor="김영주"

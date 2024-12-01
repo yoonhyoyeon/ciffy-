@@ -1,0 +1,66 @@
+.container {
+    margin-top: -70px;
+    background-color: var(--color-white)!important;
+    padding: 100px 0 100px 7%; 
+    box-sizing: border-box;
+}
+.container .title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--color-blue-2);
+}
+.container .timetable_controller {
+    display: flex;
+    width: 360px;
+    margin-right: 90px;
+    float: right;
+    margin-bottom: 30px;
+}
+.container .timetable_controller span {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-blue-2);
+    margin-right: 30px;
+}
+.container .contents_wrap {
+    display: inline-block;
+    width: 100%;
+}
+.container .contents_wrap .left_area {
+    width: calc(100% - 500px);
+    float: left;
+}
+.container .contents_wrap .left_area .contents_name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-blue-2);
+    margin-bottom: 30px;
+    margin-top: 35px;
+}
+.container .contents_wrap .right_area {
+    position: relative;
+    width: 450px;
+    float: right;
+}
+.container .contents_wrap .right_area .cover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90px;
+    height: 100%;
+    background: linear-gradient(to right, var(--color-opacity-0), var(--color-white));
+    z-index: 5;
+}
+.container .contents_wrap .right_area .TimetableList {
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+.container .contents_wrap .right_area .TimetableList .contents_wrap {
+    display: flex;
+}
+.container .contents_wrap .right_area .TimetableList .contents_wrap .timetable_wrap {
+    display: inline-block;
+    width: 360px;
+    margin-right: 20px;
+}

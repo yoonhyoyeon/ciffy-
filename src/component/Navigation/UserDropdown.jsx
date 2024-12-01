@@ -4,13 +4,14 @@ import styles from './index.module.css';
 import { deleteCookie } from 'cookies-next/client';
 import { useRouter } from 'next/navigation';
 
-const UserDropdown = ({setBackground}) => {
+const UserDropdown = ({userid, username, setBackground}) => {
     const router = useRouter();
     const [opened, setOpened] = useState(false);
 
     const sign_out = (e) => {
         deleteCookie('access_token');
         deleteCookie('refresh_token');
+        localStorage.removeItem('user_info');
         router.push('/');
     }
     return (
@@ -21,13 +22,13 @@ const UserDropdown = ({setBackground}) => {
                     setBackground(true);
                 }} 
                 className={styles.txt}
-            >윤효연 ⏷</span>
+            >{username} ⏷</span>
             <div 
                 className={`${opened ? styles.opened : null} ${styles.background}`}
                 onClick={() => setOpened(false)}
             >
                 <div className={styles.dropdown_box}>
-                    <div className={styles.item}>마이페이지</div>
+                    <div onClick={() => router.push('/mypage/'+userid)}className={styles.item}>마이페이지</div>
                     <div onClick={sign_out} className={styles.item}>로그아웃</div>
                 </div>
             </div>

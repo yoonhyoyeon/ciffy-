@@ -1,0 +1,63 @@
+.container {
+    color: var(--color-blue-3);
+    font-size: 14px;
+    width: 100%;
+    min-width: 572px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--color-bg-start);
+}
+.container:not(:first-of-type):hover {
+    background-color: var(--color-bg-start-opacity-30);
+}
+.container:first-of-type {
+    border-top: 1px solid var(--color-bg-start);
+    background-color: var(--color-bg-start-opacity-60);
+    color: var(--color-blue-3-opacity-40);
+}
+.container:first-of-type .cell .checked_wrap {
+    display: none;
+}
+.container .cell:nth-of-type(1) {
+    flex: 1;
+}
+.container .cell:nth-of-type(2) {
+    flex: 1;
+}
+.container .cell:nth-of-type(3) {
+    flex: 1.5;
+}
+.container .cell:nth-of-type(4) {
+    flex: 4;
+}
+.container .cell:nth-of-type(5) {
+    flex: 1.5;
+}
+.container .cell:nth-of-type(6) {
+    flex: 2.5;
+}
+.container .cell:nth-of-type(7) {
+    flex: 1;
+}
+.container .cell .checked_wrap {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--color-blue-2-opacity-30);
+}
+.container .cell .checked_wrap .checked {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-blue-2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container .cell .checked_wrap .checked .icon {
+    width: 12px;
+}

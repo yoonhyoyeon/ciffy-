@@ -6,6 +6,7 @@ import Button from '@/component/Button';
 import CiffyComment from './CiffyComment';
 import ReviewList from './ReviewList';
 import ExpectedGraduation from './ExpectedGraduation';
+import { usePathname } from 'next/navigation';
 
 const dataList = [
     {
@@ -53,6 +54,9 @@ const dataList = [
 ];
 
 const TimetableDetail = () => {
+    const pathname = usePathname();
+    console.log(pathname);
+
     const btn_style = {
         fontSize: '16px',
         fontWeight: 600,
@@ -73,17 +77,19 @@ const TimetableDetail = () => {
                         }}
                         onClick={() => history.back()}
                     >
-                            다시 선택
+                        뒤로 가기
                     </Button>
-                    <Button
-                        customStyles={{
-                            flex: 2,
-                            ...btn_style
-                        }}
-                        isShadow
-                    >
-                        시간표 선택
-                    </Button>
+                    { pathname === '/timetable/create/select/detail' ?
+                        <Button
+                            customStyles={{
+                                flex: 2,
+                                ...btn_style
+                            }}
+                            isShadow
+                        >
+                            시간표 선택
+                        </Button> : null
+                    }
                 </div>
             </div>
             <div className={styles.right_area}>
