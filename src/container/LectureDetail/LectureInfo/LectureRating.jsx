@@ -3,7 +3,7 @@ import ProgressBar from '@/component/ProgressBar';
 
 const LectureRating = ({review_cnt, rating}) => {
     const sum = rating.reduce((acc, cur, i) => acc + cur*(i+1), 0);
-    const avg = review_cnt===0?0:sum/review_cnt;
+    const avg = review_cnt===0 ? 0 : sum/review_cnt;
     const biggest_index = rating.indexOf(Math.max(...rating));
     return (
         <div className={styles.LectureRating}>

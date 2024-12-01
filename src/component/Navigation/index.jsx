@@ -50,12 +50,16 @@ const Navigation = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const closeNavbar = () => {
+        setMobile_opened(false);
+    }
+
     return (
         <Suspense>
             <div style={background ? backgroundStyle : null} className={`${styles.container} ${mobile_opened ? styles.opened : null}`}>
                 { mobile_opened ? <div onClick={() => setMobile_opened((prev)=>!prev)} className={styles.mobile_background}></div> : null}
                 <div className={styles.mobile_navbar}>
-                    <Link href="/"><img className={styles.logo} src="/images/logo.png" /></Link>
+                    <Link href="/"><img onClick={closeNavbar} className={styles.logo} src="/images/logo.png" /></Link>
                     <div
                         className={`${styles.menu_btn} ${mobile_opened ? styles.opened : null}`} 
                         onClick={() => setMobile_opened((prev)=>!prev)}
@@ -76,6 +80,7 @@ const Navigation = () => {
                 <div className={styles.rightarea}>
                     { isAuthorized===null ? null : isAuthorized ?
                         <UserDropdown
+                            closeNavbar={closeNavbar}
                             userid={userinfo.id}
                             username={userinfo.name}
                             setBackground={setBackground}

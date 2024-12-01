@@ -83,13 +83,6 @@ export const addLectureReview = async (course_id, student_id, review_text, ratin
         })
     });
     const result = await response.json();
-    console.log(result);
-    return result;
-}
-
-export const getUserInfo = async (id, pw) => {
-    const response = await fetch(`/api/user-info/${id}?password=${pw}`);
-    const result = await response.json();
     if(result.status === 'success') {
         console.log('강의 리뷰 작성 성공');
         alert('강의 후기가 등록되었습니다.');
@@ -97,6 +90,12 @@ export const getUserInfo = async (id, pw) => {
     else {
         alert('강의 후기 등록 실패');
     }
+    return result;
+}
+
+export const getUserInfo = async (id, pw) => {
+    const response = await fetch(`/api/user-info/${id}?password=${pw}`);
+    const result = await response.json();
     return result;
 }
 

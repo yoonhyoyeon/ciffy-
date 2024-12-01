@@ -1,5 +1,6 @@
 import ProgressBar from '@/component/ProgressBar';
 import styles from './index.module.css';
+import { assignment_field, team_field, grade_field } from '@/constants';
 
 
 //<div className={styles.off}><div style={{width: rating/5*100+'%'}}className={styles.on}></div></div>
@@ -8,17 +9,17 @@ const LectureFeature = ({review_cnt, assignment, team, grade}) => {
     const getLectureFeatureData = () => {
         if(assignment) return {
             title: '과제',
-            contents: ['없음', '보통', '많음'],
+            contents: assignment_field,
             value: assignment
         };
         else if(team) return  {
             title: '조모임',
-            contents: ['없음', '보통', '많음'],
+            contents: team_field,
             value: team,
         };
         else if(grade) return  {
             title: '성적',
-            contents: ['너그러움', '보통', '깐깐함'],
+            contents: grade_field,
             value: grade,
         };
         else return {

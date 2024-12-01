@@ -14,7 +14,7 @@ export const getSearchedLectures = async (lectures_data, keyword, sort) => {
 export const countReviewValues = (target, reviews, field_cnt) => {
     let result=new Array(field_cnt).fill(0);
     reviews?.forEach((v) => {
-        return result[v[target]-1]+=1;
+        return result[field_cnt-v[target]]+=1;
     });
     return result;
 }

@@ -8,11 +8,11 @@ const CheckboxInput = ({ data, setData, field}) => {
                         key={i} 
                         className={styles.item} 
                         onClick={() => {
-                            setData(i+1);
+                            setData(3-i);
                         }}
                     >
                         <div className={styles.checkbox}>
-                            { data === i+1 ? <img src="/images/checked-icon-1.png" /> : null }
+                            { data === 3-i ? <img src="/images/checked-icon-1.png" /> : null }
                         </div>
                         <span className={styles.txt}>{v}</span>
                     </div>

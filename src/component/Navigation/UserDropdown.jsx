@@ -4,7 +4,7 @@ import styles from './index.module.css';
 import { deleteCookie } from 'cookies-next/client';
 import { useRouter } from 'next/navigation';
 
-const UserDropdown = ({userid, username, setBackground}) => {
+const UserDropdown = ({closeNavbar, userid, username, setBackground}) => {
     const router = useRouter();
     const [opened, setOpened] = useState(false);
 
@@ -12,6 +12,7 @@ const UserDropdown = ({userid, username, setBackground}) => {
         deleteCookie('access_token');
         deleteCookie('refresh_token');
         localStorage.removeItem('user_info');
+        closeNavbar();
         router.push('/');
     }
     return (
@@ -28,7 +29,14 @@ const UserDropdown = ({userid, username, setBackground}) => {
                 onClick={() => setOpened(false)}
             >
                 <div className={styles.dropdown_box}>
-                    <div onClick={() => router.push('/mypage/'+userid)}className={styles.item}>마이페이지</div>
+                    <div 
+                        onClick={() => {
+                            setOpened(false);
+                            closeNavbar();
+                            router.push('/mypage/'+userid);
+                        }} 
+                        className={styles.item}
+                    >마이페이지</div>
                     <div onClick={sign_out} className={styles.item}>로그아웃</div>
                 </div>
             </div>

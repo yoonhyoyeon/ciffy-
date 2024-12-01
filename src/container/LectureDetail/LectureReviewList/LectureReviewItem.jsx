@@ -1,9 +1,8 @@
 import styles from './index.module.css';
+import { assignment_field, team_field, grade_field } from '@/constants';
 
 const LectureReviewItem = ({ rating, contents, assignment, team, grade }) => {
-    const assignment_field = ['없음', '보통', '많음'];
-    const team_field = ['없음', '보통', '많음'];
-    const grade_field = ['너그러움', '보통', '깐깐함'];
+
     return (
         <div className={styles.LectureReviewItem}>
             <div className={styles.top}>
@@ -15,11 +14,11 @@ const LectureReviewItem = ({ rating, contents, assignment, team, grade }) => {
                 </div>
                 <div className={styles.add_info}>
                     <div className={styles.info_name}>과제:</div>
-                    <span>{assignment_field[parseInt(assignment)-1]}</span>
+                    <span>{assignment_field[3-parseInt(assignment)]}</span>
                     <div className={styles.info_name}>조모임:</div>
-                    <span>{team_field[parseInt(team)-1]}</span>
+                    <span>{team_field[3-parseInt(team)]}</span>
                     <div className={styles.info_name}>성적:</div>
-                    <span>{grade_field[parseInt(grade)-1]}</span>
+                    <span>{grade_field[3-parseInt(grade)]}</span>
                 </div>
             </div>
             <div className={styles.bottom}>

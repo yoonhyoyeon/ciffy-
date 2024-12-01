@@ -3,8 +3,6 @@ import LectureRating from './LectureRating';
 import LectureFeature from './LectureFeature';
 import { countReviewValues } from '@/utils';
 
-//<div className={styles.off}><div style={{width: rating/5*100+'%'}}className={styles.on}></div></div>
-
 const LectureInfo = ({name, professor, reviews}) => {
     return (
         <div className={styles.container}>

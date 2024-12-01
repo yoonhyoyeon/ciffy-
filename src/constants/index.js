@@ -1,3 +1,7 @@
+export const assignment_field = ['없음', '보통', '많음'];
+export const team_field = ['없음', '보통', '많음'];
+export const grade_field = ['너그러움', '보통', '깐깐함'];
+
 export const GraduationTitle = {
     0: '전체',
     1: '전공필수',

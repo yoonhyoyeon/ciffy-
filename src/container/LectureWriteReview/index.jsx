@@ -7,6 +7,7 @@ import RatingInput from './RatingInput';
 import CheckboxInput from '@/container/LectureWriteReview/CheckboxInput';
 import { addLectureReview } from '@/service';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { assignment_field, team_field, grade_field } from '@/constants';
 
 const LectureWriteReview = ({id}) => {
     const [rating, setRating] = useState(0);
@@ -20,7 +21,7 @@ const LectureWriteReview = ({id}) => {
 
     const submit = async() => {
         const result = await addLectureReview(id, "21011189", contents, rating, assignment, team, grade);
-        
+
         router.replace(`/lecture/detail/${id}?name=${params.get('name')}&professor=${params.get('professor')}`);
     }
     return (
@@ -45,7 +46,7 @@ const LectureWriteReview = ({id}) => {
                     <CheckboxInput 
                         data={assignment} 
                         setData={setAssignment}
-                        field={['없음', '보통', '많음']}
+                        field={assignment_field}
                     />
                 </div>
                 <div className={styles.item}>
@@ -53,7 +54,7 @@ const LectureWriteReview = ({id}) => {
                     <CheckboxInput 
                         data={team} 
                         setData={setTeam}
-                        field={['없음', '보통', '많음']}
+                        field={team_field}
                     />
                 </div>
                 <div className={styles.item}>
@@ -61,7 +62,7 @@ const LectureWriteReview = ({id}) => {
                     <CheckboxInput 
                         data={grade} 
                         setData={setGrade}
-                        field={['너그러움', '보통', '깐깐함']}
+                        field={grade_field}
                     />
                 </div>
             </div>
