@@ -1,6 +1,129 @@
-export const assignment_field = ['없음', '보통', '많음'];
-export const team_field = ['없음', '보통', '많음'];
-export const grade_field = ['너그러움', '보통', '깐깐함'];
+export const ASSIGNMENT_FIELD = ['없음', '보통', '많음'];
+export const TEAM_FIELD = ['없음', '보통', '많음'];
+export const GRADE_FIELD = ['너그러움', '보통', '깐깐함'];
+
+export const SURVEY_QUESTON = [
+    '팀플 수업이 많았으면 좋겠다.', 
+    '시험보단 과제로 평가가 되었으면 좋겠다.', 
+    '수업 내용이 실제 업무에 도움이 되는 수업을 선호한다.', 
+    '수업이 이론보다는 실습 위주로 진행되면 좋겠다.', 
+    '영어 수업을 선호한다.', 
+    '후기가 많은 과목이 좋다.', 
+    '졸업을 위한 필수 과목을 많이 들어야한다.', 
+    '교양이 많았으면 좋겠다.' ,
+    '시험이 어려운 수업이 좋다.', 
+    '교수님이 학생들과의 소통을 중요시하는 수업을 선호한다.',
+];
+
+export const LAODING_MESSAGE = [
+    '시피가 설문을 분석 중이에요!',
+    '시피가 졸업요건을 분석 중이에요!',
+    '시피가 강의정보를 확인 중이에요!',
+    '시피가 시간표를 계산 중이에요!',
+    '시피가 곧 시간표를 추천 드릴게요!',
+];
+
+export const GRADUATION_RQUIRED = [
+    {
+        course_code: 9489,
+        course_name: '세계사: 인간과 문명',
+        course_type: '교선',
+        choice: '사상과역사',
+        credit: 3
+    },
+    {
+        course_code: 9790,
+        course_name: '고급프로그래밍입문-P',
+        course_type: '교선1',
+        choice: '자연과과학기술',
+        credit: 3
+    },
+    {
+        course_code: 9936,
+        course_name: 'Technical Writing기초',
+        course_type: '교선',
+        choice: '자연과과학기술',
+        credit: 2
+    },
+    {
+        course_code: 2647,
+        course_name: '일반물리학및실험1',
+        course_type: '기교',
+        choice: '생명과 과학',
+        credit: 3
+    },
+    {
+        course_code: 304,
+        course_name: '공업수학1',
+        course_type: '기필',
+        choice: '',
+        credit: 3
+    },
+    {
+        course_code: 6098,
+        course_name: '기초미적분학',
+        course_type: '기필',
+        choice: '자연과과학기술',
+        credit: 3
+    },
+    {
+        course_code: 10352,
+        course_name: 'English Listening Practice 1',
+        course_type: '교필',
+        choice: '',
+        credit: 2
+    },
+    {
+        course_code: 10354,
+        course_name: 'English Reading Practice 1',
+        course_type: '교필',
+        choice: '',
+        credit: 2
+    },
+    {
+        course_code: 11110,
+        course_name: '신입생세미나',
+        course_type: '교필',
+        choice: '',
+        credit: 1
+    },
+    {
+        course_code: 11182,
+        course_name: '대학생활과진로탐색',
+        course_type: '교필',
+        choice: '',
+        credit: 1
+    },
+    {
+        course_code: 11183,
+        course_name: '취창업과진로설계',
+        course_type: '공필',
+        choice: '',
+        credit: 1
+    },
+    {
+        course_code: 9045,
+        course_name: '창업과기업가정신1',
+        course_type: '공필',
+        choice: '',
+        credit: 1
+    },
+    {
+        course_code: 9067,
+        course_name: '문제해결을위한글쓰기와발표',
+        course_type: '공필',
+        choice: '',
+        credit: 3
+    },
+    {
+        course_code: 9068,
+        course_name: '서양철학:쟁점과토론',
+        course_type: '공필',
+        choice: '',
+        credit: 3
+    },
+
+]
 
 export const GraduationTitle = {
     0: '전체',
@@ -11,6 +134,8 @@ export const GraduationTitle = {
     5: '학문기초교양필수',
     6: '영어졸업인증',
 };
+
+
 
 export const timetableList = [
     {

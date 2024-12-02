@@ -1,5 +1,6 @@
 import styles from './index.module.css';
 import TableRow from './TableRow';
+import { isFailedLecture } from '@/utils';
 
 const Table = ({takedLectures}) => {
     return (
@@ -21,8 +22,9 @@ const Table = ({takedLectures}) => {
                     code={v.course_code} 
                     name={v.course_name} 
                     type={v.course_type}
-                    sector={""}
+                    sector={v.choice}
                     credit={v.credit}
+                    isF={isFailedLecture(v)}
                 />
             ))}
         </div>

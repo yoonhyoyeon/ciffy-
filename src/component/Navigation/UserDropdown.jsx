@@ -33,7 +33,7 @@ const UserDropdown = ({closeNavbar, userid, username, setBackground}) => {
                         onClick={() => {
                             setOpened(false);
                             closeNavbar();
-                            router.push('/mypage/'+userid);
+                            router.push('/mypage');
                         }} 
                         className={styles.item}
                     >마이페이지</div>

@@ -36,6 +36,7 @@ export const login = async (id, pw) => {
         const result_accessToken = await res_accessToken.json();
 
         //쿠키에 토큰 저장
+        setCookie('id', id, option);
         setCookie('refresh_token', result.refresh_token, option);
         setCookie('access_token', result_accessToken.access_token, option);
         //회원 정보 저장
@@ -99,7 +100,7 @@ export const getUserInfo = async (id, pw) => {
     return result;
 }
 
-/* my page */
+/* my page, graduate */
 
 export const getTakedLectures = async(student_id) => {
     const response = await fetch(`${process.env.API_URL}/api/get-course-data?student_id=${student_id}`);
@@ -111,5 +112,34 @@ export const getTakedLectures = async(student_id) => {
     else {
         console.log('기이수 강의 목록 불러오기 실패: ', result);
         return [];
+    }
+}
+
+/* ai timetable */
+
+export const submitQuestion = async (id, value) => {
+    const response = await fetch('/api/submit-questions', {
+        method: 'POST',
+        headers: {
+            'accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'student_id': id,
+            'selected_questions': value
+        })
+    });
+    const result = await response.json();
+    if(!response.ok) {
+        if(result.detail==="You must select exactly 10 questions.") {
+            alert('모든 질문에 답 해주세요!');
+        }
+        else {
+            alert('설문 제출 ERROR');
+        }
+        return false;
+    }
+    else {
+        return true;
     }
 }

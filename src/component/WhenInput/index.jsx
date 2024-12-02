@@ -7,7 +7,6 @@ const WhenInput = ({when, setWhen}) => {
             <select value={when} onChange={(e) => {
                 setWhen(e.target.value)
             }}>
-                <option value=""></option>
                 <option value="24년 2학기">24년 2학기</option>
                 <option value="24년 여름">24년 여름</option>
                 <option value="24년 1학기">24년 1학기</option>

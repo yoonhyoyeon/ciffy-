@@ -7,7 +7,7 @@ import RatingInput from './RatingInput';
 import CheckboxInput from '@/container/LectureWriteReview/CheckboxInput';
 import { addLectureReview } from '@/service';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { assignment_field, team_field, grade_field } from '@/constants';
+import { ASSIGNMENT_FIELD, TEAM_FIELD, GRADE_FIELD } from '@/constants';
 
 const LectureWriteReview = ({id}) => {
     const [rating, setRating] = useState(0);
@@ -46,7 +46,7 @@ const LectureWriteReview = ({id}) => {
                     <CheckboxInput 
                         data={assignment} 
                         setData={setAssignment}
-                        field={assignment_field}
+                        field={ASSIGNMENT_FIELD}
                     />
                 </div>
                 <div className={styles.item}>
@@ -54,7 +54,7 @@ const LectureWriteReview = ({id}) => {
                     <CheckboxInput 
                         data={team} 
                         setData={setTeam}
-                        field={team_field}
+                        field={TEAM_FIELD}
                     />
                 </div>
                 <div className={styles.item}>
@@ -62,7 +62,7 @@ const LectureWriteReview = ({id}) => {
                     <CheckboxInput 
                         data={grade} 
                         setData={setGrade}
-                        field={grade_field}
+                        field={GRADE_FIELD}
                     />
                 </div>
             </div>

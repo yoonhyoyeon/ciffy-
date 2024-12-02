@@ -29,7 +29,8 @@ const PrevArrow = ({ className, style, onClick }) => {
 const TimetableSlider = ({ timetables, selected, setSelected }) => {
     const [ slickSlider, setSlickSlider ] = useState(null);
     const [ isInit, setIsInit ] = useState(false);
-    useEffect(() => { slickSlider?.slickGoTo(selected) }, [isInit])
+    useEffect(() => { slickSlider?.slickGoTo(selected) }, [isInit]);
+    
     const onInit = () => setIsInit(true);
     const settings = {
         dots: true,

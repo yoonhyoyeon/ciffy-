@@ -1,8 +1,8 @@
 import styles from './index.module.css';
 
-const TableRow = ({year, term, code, name, type, sector, credit}) => {
+const TableRow = ({year, term, code, name, type, sector, credit, isF}) => {
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${ isF ? styles.isF : null}`}>
             <div className={styles.cell}>{year}</div>
             <div className={styles.cell}>{term}</div>
             <div className={styles.cell}>{code}</div>

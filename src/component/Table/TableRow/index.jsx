@@ -2,7 +2,7 @@ import styles from './index.module.css';
 
 const TableRow = ({code, name, type, sector, credit, checked}) => {
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${checked ? styles.checked : null}`}>
             <div className={styles.cell}>{code}</div>
             <div className={styles.cell}>{name}</div>
             <div className={styles.cell}>{type}</div>

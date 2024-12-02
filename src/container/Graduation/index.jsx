@@ -4,6 +4,7 @@ import GraduationProgress from '@/component/GraduationProgress';
 import TotalGraduate from '@/component/TotalGraduate';
 
 const Graduation = ({data}) => {
+    
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>졸업요건 분석</h1>
