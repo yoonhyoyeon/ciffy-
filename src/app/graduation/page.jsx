@@ -10,11 +10,8 @@ export const metadata = {
 const GraduationPage = async () => {
     const cookieStore = await cookies();
     const id = cookieStore.get('id').value;
-
     const takedLectures = await getTakedLectures(id);
-
     const data = transformTakedLectures(takedLectures);
-    console.log(data);
 
     return (
         <Graduation data={data}/>

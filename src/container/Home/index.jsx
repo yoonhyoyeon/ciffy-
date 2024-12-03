@@ -1,13 +1,24 @@
+'use client';
 import Button from "@/component/Button";
 import styles from './index.module.css';
 import Link from 'next/link';
+import { ReactTyped } from "react-typed";
 
 const Home = () => {
     return (
     <div className={styles.container}>
         <div className={styles.contents}>
             <h2>귀찮았던 시간표 짜기는 이제 안녕 👋🏻</h2>
-            <h1>시간표의 새 패러다임, <span>시피</span>를 소개합니다</h1>
+            <div className={styles.typed_container}>
+            <ReactTyped 
+                loop
+                startWhenVisible
+                strings={['<h1>시간표의 새 패러다임, <span>시피</span>를 소개합니다</h1>']} 
+                typeSpeed={60}
+                showCursor={true}
+                backDelay={6000}
+            />
+            </div>
             <img src="/images/timetable.png" />
             <Link href="/timetable/create/survey">
                 <Button isShadow size="medium">시간표 짜기</Button>

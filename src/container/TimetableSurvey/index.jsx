@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Button from '@/component/Button';
 import Question from '@/component/Question';
 import { SURVEY_QUESTON, LAODING_MESSAGE } from '@/constants';
-import { rand, sleep } from '@/utils';
+import { rand } from '@/utils';
 import { submitQuestion } from '@/service';
 import { useRouter } from 'next/navigation';
 

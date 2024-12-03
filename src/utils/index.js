@@ -1,8 +1,11 @@
 import { GRADUATION_RQUIRED1, GRADUATION_RQUIRED2, GRADUATION_RQUIRED3, GRADUATION_RQUIRED4 } from '@/constants';
 
+export const rand = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 /* 강의 중 조건에 맞는 강의 반환 */
 export const getSearchedLectures = async (lectures_data, keyword, sort) => {
-    await new Promise((resolve) => setTimeout(resolve, 250));
+    await new Promise((resolve) => setTimeout(resolve, rand(100,400)));
     const searchedLectures = lectures_data?.filter((v) => {
         if (v.course_name.indexOf(keyword) != -1) return true;
         else {
@@ -57,7 +60,7 @@ export const transformTakedLectures = (takedLectures) => {
         return !findLecture(v.course_name, taked4);
     }); ///공통교양필수 추천
     const recommended4 = GRADUATION_RQUIRED3.filter((v) => {
-        return !findLecture(v.course_name, taked5)&&v.course_name!='일반물리학및실험1';
+        return !findLecture(v.course_name, taked5)&&v.course_name!=='일반물리학및실험1';
     }); ///학문기초교양필수 추천
 
 
@@ -121,7 +124,3 @@ export const transformTakedLectures = (takedLectures) => {
         }
     ];
 }
-
-export const rand = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }

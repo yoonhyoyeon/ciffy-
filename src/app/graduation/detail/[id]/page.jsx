@@ -13,10 +13,9 @@ const GraduationDetailPage = async ({params}) => {
     const cookieStore = await cookies();
     const user_id = cookieStore.get('id').value;
     const takedLectures = await getTakedLectures(user_id);
-    
     const data = transformTakedLectures(takedLectures);
-    console.log(data);
     const { id } = await params;
+    
     return (
         <GraduationDetail user_id={id} page_data={data[id]}/>
     )

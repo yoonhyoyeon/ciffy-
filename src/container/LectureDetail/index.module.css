@@ -46,6 +46,7 @@
     .container {
         padding: 60px 5.2% 20px 5.2%;
         height: auto;
+        margin-top: 30px;
     }
     .container .close_btn {
         top: 20px;

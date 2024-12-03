@@ -58,9 +58,34 @@
 }
 .container .contents_wrap .right_area .TimetableList .contents_wrap {
     display: flex;
+    flex-direction: row;
 }
 .container .contents_wrap .right_area .TimetableList .contents_wrap .timetable_wrap {
     display: inline-block;
     width: 360px;
     margin-right: 20px;
+}
+
+@media screen and (max-width:1023px)  {
+    .container .timetable_controller {
+        float: left;
+        max-width: 100%;
+        width: 360px;
+    }
+    .container {
+        padding: 100px 5%;
+    }
+    .container .contents_wrap {
+        display: flex;
+        flex-direction: column-reverse;
+        box-sizing: border-box;
+    }
+    .container .contents_wrap .left_area {
+        width: 100%;
+    }
+    .container .contents_wrap .right_area {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
 }

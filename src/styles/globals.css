@@ -70,6 +70,14 @@ input:focus, select:focus {
 .slick-dots {
     bottom: -40px!important;
 }
+.typed-cursor {
+    display: inline-block!important;
+    width: 2px;
+    height: 45px!important;
+    color: var(--color-opacity-0);
+    background-color: var(--color-blue-2);
+    margin-left: 4px;
+}
 
 @media screen and (max-width: 850px) {
     body {
@@ -84,5 +92,8 @@ input:focus, select:focus {
     }
     .slick-next {
         right: 5px!important;
+    }
+    .typed-cursor {
+        display: none!important;
     }
 }

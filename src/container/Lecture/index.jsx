@@ -32,12 +32,10 @@ const Lecture = ({lectures_data}) => {
     }, [sort, searchParams, keyword]);
 
     const submit = async (keyword_params) => {
-        console.log('실행');
         setLoading(true);
         setLectures(await getSearchedLectures(lectures_data, keyword_params, sort));
         setKeyword(value);
         setLoading(false);
-        console.log('실행 끝');
     }
     return (
         <div className={styles.container}>

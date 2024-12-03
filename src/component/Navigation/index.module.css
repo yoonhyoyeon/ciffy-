@@ -44,7 +44,7 @@
 .rightarea .UserDropdown .background {
     position: fixed;
     width: 100vw;
-    height: calc(100vh - 70px);
+    height: 100vh;
     top: -100%;
     left: 0;
     opacity: 0;
@@ -53,12 +53,12 @@
     color: var(--color-blue-3);
 }
 .rightarea .UserDropdown .background.opened {
-    top: 70px;
+    top: 0;
     opacity:1;
 }
 .rightarea .UserDropdown .background .dropdown_box {
     position: absolute;
-    top: 3px;
+    top: 70px;
     right: 0;
     width: 180px;
     background-color: var(--color-white);
@@ -100,7 +100,11 @@
 }
 
 @media screen and (max-width: 850px) {
+    .rightarea .UserDropdown {
+        margin-right: 10px;
+    }
     .container .mobile_background {
+        display: inline-block;
         position: fixed;
         left: 0;
         right: 0;
@@ -116,7 +120,6 @@
     }
     .container .mobile_navbar .menu_btn {
         float: right;
-        margin: 3px 10px 3px 0;
         width: 34px;
         height: auto;
         padding: 2px 4px;
@@ -190,6 +193,9 @@
     }
     .container .leftarea .navlist a:hover, .container .navlist a:has(.active) {
         background-color: var(--color-blue-gray-focus);
+    }
+    .container .navlist li {
+        margin-right: 25px;
     }
     .container .leftarea .logo {
         display: none;
