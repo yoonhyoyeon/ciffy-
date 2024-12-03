@@ -73,7 +73,7 @@ const Navigation = () => {
                     <Link href="/"><img className={styles.logo} src="/images/logo.png" /></Link>
                     <ul className={styles.navlist}>
                         <Link onClick={() => setMobile_opened((prev)=>!prev)} href="/timetable/create/survey"><li className={path.startsWith('/timetable/create')?styles.active:null}>시간표짜기</li></Link>
-                        <Link onClick={() => setMobile_opened((prev)=>!prev)} href="/lecture"><li className={path.startsWith('/lecture')?styles.active:null}>강의후기</li></Link>
+                        <Link onClick={() => setMobile_opened((prev)=>!prev)} href="/lecture?keyword="><li className={path.startsWith('/lecture')?styles.active:null}>강의후기</li></Link>
                         <Link onClick={() => setMobile_opened((prev)=>!prev)} href="/graduation"><li className={path.startsWith('/graduation')?styles.active:null}>졸업요건분석</li></Link>
                     </ul>
                 </div>
