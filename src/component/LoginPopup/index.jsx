@@ -21,8 +21,9 @@ const LoginPopup = ({opened, setOpened, setIsAuthorized, setUserinfo}) => {
             //로그인 팝업 닫고
             setOpened(false);
             router.replace(`/?isFirst=${id}&name=${user_info.name}`);
-            setIsAuthorized(true);
-            setUserinfo(user_info);
+            // setIsAuthorized(true);
+            // setUserinfo(user_info);
+            location.reload(true);
         }
     };
 
