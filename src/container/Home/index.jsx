@@ -5,9 +5,7 @@ import Link from 'next/link';
 import { ReactTyped } from "react-typed";
 import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import Popup from "@/component/Popup";
 import GuideExcelPopup from "@/component/GuideExcelPopup";
-import { getTakedLectures } from '@/service';
 
 const Home = () => {
     const searchParams = useSearchParams();
@@ -29,7 +27,7 @@ const Home = () => {
                 console.log('기이수 강의 목록 불러오기 실패: ', result);
                 setOpend(true);
             }
-            router.replace('/');
+            router.push('/');
         }
         if(student_id) {
             CheckUploaded();

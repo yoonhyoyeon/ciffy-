@@ -13,9 +13,10 @@ const UserDropdown = ({closeNavbar, userid, username, checkAuth}) => {
         deleteCookie('refresh_token');
         deleteCookie('id');
         localStorage.removeItem('user_info');
-        closeNavbar();
-        router.replace('/');
-        checkAuth();
+        // closeNavbar();
+        router.push('/');
+        // checkAuth();
+        location.reload(true);
     }
     return (
         <div className={styles.UserDropdown}>
