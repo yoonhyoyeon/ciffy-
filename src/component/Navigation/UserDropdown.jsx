@@ -4,16 +4,18 @@ import styles from './index.module.css';
 import { deleteCookie } from 'cookies-next/client';
 import { useRouter } from 'next/navigation';
 
-const UserDropdown = ({closeNavbar, userid, username, setBackground}) => {
+const UserDropdown = ({closeNavbar, userid, username, checkAuth}) => {
     const router = useRouter();
     const [opened, setOpened] = useState(false);
 
     const sign_out = (e) => {
         deleteCookie('access_token');
         deleteCookie('refresh_token');
+        deleteCookie('id');
         localStorage.removeItem('user_info');
         closeNavbar();
-        router.push('/');
+        router.replace('/');
+        checkAuth();
     }
     return (
         <div className={styles.UserDropdown}>

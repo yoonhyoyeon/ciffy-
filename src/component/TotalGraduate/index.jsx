@@ -7,11 +7,19 @@ import { useEffect, useState } from 'react';
 import CountUp from 'react-countup';
 import { GraduationTitle } from '@/constants';
 import ExcelUploadPopup from '@/component/ExcelUploadPopup';
+import { useSearchParams, useRouter } from 'next/navigation';
 
 const TotalGraduate = ({dataobj}) => {
     const { data, max, id } = dataobj;
     const [value, setValue] = useState(0);
     const [popup, setPopup] = useState(false);
+    const searchParams = useSearchParams();
+    const router = useRouter();
+
+    useEffect(() => {
+        console.log(searchParams.get('opened'));
+        setPopup(searchParams.get('opened')==='1');
+    }, [searchParams]);
 
     useEffect(() => {
         setValue(Math.round(data/max*100));

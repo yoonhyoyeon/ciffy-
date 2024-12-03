@@ -18,31 +18,33 @@ export const login = async (id, pw) => {
         else {
             alert('로그인 ERROR');
         }
+        return false;
     } 
     else { //로그인 성공
         const option = {
             maxAge: 3600 * 24 * 14 //14일
         }
 
-        /* access_token 발급 */
-        const res_accessToken = await fetch('api/token/refresh', {
-            method: 'POST',
-            headers: {
-                'accept': 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `refresh_token=${result.refresh_token}`,
-        });
-        const result_accessToken = await res_accessToken.json();
+        // /* access_token 발급 */
+        // const res_accessToken = await fetch('api/token/refresh', {
+        //     method: 'POST',
+        //     headers: {
+        //         'accept': 'application/json',
+        //         'Content-Type': 'application/x-www-form-urlencoded',
+        //     },
+        //     body: `refresh_token=${result.refresh_token}`,
+        // });
+        // const result_accessToken = await res_accessToken.json();
 
         //쿠키에 토큰 저장
         setCookie('id', id, option);
         setCookie('refresh_token', result.refresh_token, option);
-        setCookie('access_token', result_accessToken.access_token, option);
+        // setCookie('access_token', result_accessToken.access_token, option);
         //회원 정보 저장
         const user_info = await getUserInfo(id, pw);
         localStorage.setItem('user_info', JSON.stringify(user_info));
-        location.reload(true);
+        
+        return true;
     }
 };
 

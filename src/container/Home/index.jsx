@@ -3,10 +3,41 @@ import Button from "@/component/Button";
 import styles from './index.module.css';
 import Link from 'next/link';
 import { ReactTyped } from "react-typed";
+import { useEffect, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import Popup from "@/component/Popup";
+import GuideExcelPopup from "@/component/GuideExcelPopup";
+import { getTakedLectures } from '@/service';
 
 const Home = () => {
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const [ opened, setOpend ] = useState(false);
+
+    useEffect(() => {
+        const student_id=searchParams.get('isFirst');
+        const CheckUploaded = async () => {
+            const response = await fetch(`/api/get-course-data?student_id=${student_id}`);
+            const result = await response.json();
+            if(result.status === 'success') {
+                console.log('기이수 강의 목록 불러오기 성공');
+                console.log(result.data.length);
+                if(result.data.length>0) setOpend(false);
+                else setOpend(true);
+            }
+            else {
+                console.log('기이수 강의 목록 불러오기 실패: ', result);
+                setOpend(true);
+            }
+            router.replace('/');
+        }
+        if(student_id) {
+            CheckUploaded();
+        }
+    }, [searchParams]);
     return (
     <div className={styles.container}>
+        <GuideExcelPopup opened={opened} setOpened={setOpend} />
         <div className={styles.contents}>
             <h2>귀찮았던 시간표 짜기는 이제 안녕 👋🏻</h2>
             <div className={styles.typed_container}>

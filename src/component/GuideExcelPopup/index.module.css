@@ -1,0 +1,28 @@
+.container {
+    text-align: center;
+    padding: 30px;
+}
+.container img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+.container h1 {
+    color: var(--color-blue-2);
+    font-size: 28px;
+}
+.container p {
+    color: var(--color-blue-3);
+    margin: 10px 0;
+    font-weight: 500;
+}
+.container .btn_wrap {
+    display: flex;
+    margin-top: 40px;
+}
+.container .btn_wrap button {
+    flex: 1;
+    margin: 0 5px;
+}
+.container .btn_wrap button:first-of-type {
+    background-color: #d6d9ec;
+}

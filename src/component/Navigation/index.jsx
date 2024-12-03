@@ -22,22 +22,26 @@ const Navigation = () => {
         boxShadow: '2px 4px 4px rgba(0, 0, 0, 0.1'
     }
     const openLogin = () => setLoginOpened(true);
-    
+    const checkAuth = () => {
+        if(getCookie('refresh_token') !== undefined) {
+            setIsAuthorized(true);
+            setUserinfo(JSON.parse(localStorage?.getItem('user_info')));
+            console.log('인증 성공');
+        }
+        else {
+            setIsAuthorized(false);
+            console.log('인증 실패');
+        } //인증 상태 검사 
+    }
     useEffect(() => {
         const loginOpen=searchParams.get('loginOpen')??false;
         if(loginOpen) {
             setLoginOpened(true);
             router.push('/');
         }
-    }, [searchParams]); //
+    }, [searchParams]);
     useEffect(() => {
-        if(getCookie('access_token') !== undefined && getCookie('refresh_token') !== undefined) {
-            setIsAuthorized(true);
-            setUserinfo(JSON.parse(localStorage?.getItem('user_info')));
-        }
-        else {
-            setIsAuthorized(false);
-        } //인증 상태 검사 
+        checkAuth();
     }, [path]);
     useEffect(() => {
         const handleScroll = () => { // 스크롤 관련 이벤트
@@ -81,9 +85,9 @@ const Navigation = () => {
                     { isAuthorized===null ? null : isAuthorized ?
                         <UserDropdown
                             closeNavbar={closeNavbar}
-                            userid={userinfo.id}
-                            username={userinfo.name}
-                            setBackground={setBackground}
+                            userid={userinfo?.id}
+                            username={userinfo?.name}
+                            checkAuth={checkAuth}
                         /> :
                         <Button 
                             size="small"
@@ -93,7 +97,7 @@ const Navigation = () => {
                         </Button>
                     }
                 </div>
-                <LoginPopup opened={loginOpened} setOpened={setLoginOpened}/>
+                <LoginPopup opened={loginOpened} setOpened={setLoginOpened} setIsAuthorized={setIsAuthorized} setUserinfo={setUserinfo}/>
             </div>
         </Suspense>
         

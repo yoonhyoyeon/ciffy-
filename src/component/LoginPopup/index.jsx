@@ -1,16 +1,29 @@
+"use client";
 import { useState } from 'react';
 import styles from './index.module.css';
 import Popup from '@/component/Popup';
 import Input from '@/component/Input';
 import Button from '@/component/Button';
-import { login } from '@/service';
+import { login, getUserInfo } from '@/service';
+import { useRouter } from 'next/navigation';
 
-const LoginPopup = ({opened, setOpened}) => {
+const LoginPopup = ({opened, setOpened, setIsAuthorized, setUserinfo}) => {
     const [ id, setId ] = useState('');
     const [ pw, setPw ] = useState('');
+    const router = useRouter();
 
-    const submit = () => {
-        login(id, pw);
+    const submit = async() => {
+        const result = await login(id, pw);
+        if(result) {
+            //회원 정보 저장
+            const user_info = await getUserInfo(id, pw);
+            localStorage.setItem('user_info', JSON.stringify(user_info));
+            //로그인 팝업 닫고
+            setOpened(false);
+            router.replace(`/?isFirst=${id}&name=${user_info.name}`);
+            setIsAuthorized(true);
+            setUserinfo(user_info);
+        }
     };
 
     return (
