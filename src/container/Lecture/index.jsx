@@ -27,7 +27,6 @@ const Lecture = ({lectures_data}) => {
             setValue(keyword_params);
             setKeyword(keyword_params);
         }
-        else router.replace(`/lecture?keyword=${value}`);
         submit(keyword_params);
     }, [sort, searchParams, keyword]);
 

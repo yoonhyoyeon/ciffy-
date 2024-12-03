@@ -40,9 +40,6 @@ export const login = async (id, pw) => {
         setCookie('id', id, option);
         setCookie('refresh_token', result.refresh_token, option);
         // setCookie('access_token', result_accessToken.access_token, option);
-        //회원 정보 저장
-        const user_info = await getUserInfo(id, pw);
-        localStorage.setItem('user_info', JSON.stringify(user_info));
         
         return true;
     }
