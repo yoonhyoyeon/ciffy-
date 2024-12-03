@@ -14,7 +14,7 @@ const GraduationPage = async () => {
     const takedLectures = await getTakedLectures(id);
 
     const data = transformTakedLectures(takedLectures);
-    console.log(data)
+    console.log(data);
 
     return (
         <Graduation data={data}/>

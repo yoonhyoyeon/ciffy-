@@ -14,7 +14,7 @@ const Mypage = ({takedLectures}) => {
     const [ userinfo, setUserinfo ] = useState({});
     useEffect(() => {
         setUserinfo(JSON.parse(localStorage?.getItem('user_info')));
-    }, [])
+    }, []);
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>마이페이지</h1>

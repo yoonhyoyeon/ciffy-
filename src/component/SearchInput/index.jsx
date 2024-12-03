@@ -7,9 +7,9 @@ const SearchInput = ({value, setValue, onSubmit, placeholder}) => {
                 placeholder={placeholder} 
                 value={value} 
                 onChange={(e) => { setValue(e.target.value) }}
-                onKeyDown={(e) => { if(e.key==="Enter") onSubmit(value); }} 
+                onKeyDown={(e) => { if(e.key==="Enter") onSubmit(); }} 
             />
-            <img onClick={(e) => { onSubmit(value); }}src="/images/search-icon.png" />
+            <img onClick={(e) => { onSubmit(); }}src="/images/search-icon.png" />
         </div>
     )
 }

@@ -20,7 +20,6 @@ const UserDropdown = ({closeNavbar, userid, username, setBackground}) => {
             <span 
                 onClick={() => {
                     setOpened((prev) => !prev);
-                    setBackground(true);
                 }} 
                 className={styles.txt}
             >{username} ⏷</span>

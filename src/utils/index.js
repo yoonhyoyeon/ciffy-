@@ -1,3 +1,5 @@
+import { GRADUATION_RQUIRED1, GRADUATION_RQUIRED2, GRADUATION_RQUIRED3, GRADUATION_RQUIRED4 } from '@/constants';
+
 /* 강의 중 조건에 맞는 강의 반환 */
 export const getSearchedLectures = async (lectures_data, keyword, sort) => {
     await new Promise((resolve) => setTimeout(resolve, 250));
@@ -9,7 +11,7 @@ export const getSearchedLectures = async (lectures_data, keyword, sort) => {
         }
     });
     if(sort === "0") return searchedLectures.sort((a,b) => b.avg_rating - a.avg_rating);
-    else if(sort === "1") return searchedLectures.sort((a, b) => a.course_name.toLowerCase() < b.course_name.toLowerCase() ? -1 : 1);;
+    else if(sort === "1") return searchedLectures.sort((a, b) => a.course_name.toLowerCase() < b.course_name.toLowerCase() ? -1 : 1);
 }
 
 /* 리뷰 카운트해서 배열로 반환 */
@@ -29,13 +31,36 @@ export const getTakedCredit = (takedLectures) => {
     return takedLectures.reduce((acc, v) => !isFailedLecture(v) ? acc+v.credit : acc, 0)
 }
 
+export const findLecture = (course_name, Lectures) => {
+    const result = Lectures.find((el) => el.course_name === course_name);
+    return result!==undefined;
+}
 /* 기이수과목 "졸업요건 페이지" 양식에 맞게 데이터 가공해서 반환 */
 export const transformTakedLectures = (takedLectures) => {
-    const filtered1 = takedLectures.filter((v) => v.course_type==="전필"&&!isFailedLecture(v));
-    const filtered2 = takedLectures.filter((v) => v.course_type==="전선"&&!isFailedLecture(v));
-    const filtered3 = takedLectures.filter((v) => v.course_type.startsWith("교선")&&!isFailedLecture(v));
-    const filtered4 = takedLectures.filter((v) => (v.course_type==="공필"||v.course_type==="교필")&&!isFailedLecture(v));
-    const filtered5 = takedLectures.filter((v) => (v.course_type==="기필"||v.course_type==="기교")&&!isFailedLecture(v));
+    const taked1 = takedLectures.filter((v) => v.course_type==="전필"&&!isFailedLecture(v)); // 전필
+    const taked2 = takedLectures.filter((v) => v.course_type==="전선"&&!isFailedLecture(v)); // 전선
+    const taked3 = takedLectures.filter((v) => v.course_type.startsWith("교선")&&!isFailedLecture(v)); // 교선
+    const taked4 = takedLectures.filter((v) => {
+        return GRADUATION_RQUIRED2.find((el) => el.course_name===v.course_name)&&!isFailedLecture(v)
+    }); // 공통교양필수
+    const taked5 = takedLectures.filter((v) => {
+        return GRADUATION_RQUIRED3.find((el) => el.course_name===v.course_name||v.course_name==='일반물리학1')&&!isFailedLecture(v)
+    }); // 학문기초교양필수
+
+    const recommended1 = GRADUATION_RQUIRED4.filter((v) => {
+        return !findLecture(v.course_name, taked1);
+    }); ///전필 추천
+    const recommended2 = GRADUATION_RQUIRED1.filter((v) => {
+        return !findLecture(v.course_name, taked3);
+    }); ///교선 추천
+    const recommended3 = GRADUATION_RQUIRED2.filter((v) => {
+        return !findLecture(v.course_name, taked4);
+    }); ///공통교양필수 추천
+    const recommended4 = GRADUATION_RQUIRED3.filter((v) => {
+        return !findLecture(v.course_name, taked5)&&v.course_name!='일반물리학및실험1';
+    }); ///학문기초교양필수 추천
+
+
 
     return [
         {
@@ -49,41 +74,50 @@ export const transformTakedLectures = (takedLectures) => {
             id: 1,
             title: '전공 필수',
             max: 33,
-            data: getTakedCredit(filtered1),
-            takedLectures: filtered1
+            data: getTakedCredit(taked1),
+            takedLectures: taked1,
+            requiredLectures: GRADUATION_RQUIRED4,
+            recommendedLectures: recommended1,
         },
         {
             id: 2,
             title: '전공 선택',
             max: 39,
-            data: getTakedCredit(filtered2),
-            takedLectures: filtered2
+            data: getTakedCredit(taked2),
+            takedLectures: taked2,
         },
         {
             id: 3,
             title: '교양 선택',
             max: 21,
-            data: getTakedCredit(filtered3),
-            takedLectures: filtered3
+            data: getTakedCredit(taked3),
+            takedLectures: taked3,
+            requiredLectures: GRADUATION_RQUIRED1,
+            recommendedLectures: recommended2,
         },
         {
             id: 4,
-            title: '공통 교향 필수',
-            max: 14,
-            data: getTakedCredit(filtered4),
-            takedLectures: filtered4
+            title: '공통 교양 필수',
+            max: 8,
+            data: taked4.length,
+            takedLectures: taked4,
+            requiredLectures: GRADUATION_RQUIRED2,
+            recommendedLectures: recommended3,
         },
         {
             id: 5,
             title: '학문 기초 교양 필수',
-            max: 9,
-            data: getTakedCredit(filtered5),
-            takedLectures: filtered5
+            max: 3,
+            data: taked5.length,
+            takedLectures: taked5,
+            requiredLectures: GRADUATION_RQUIRED3,
+            recommendedLectures: recommended4,
         },
         {
             id: 6,
             title: '영어 졸업 인증',
             max: -1,
+            data: 0
         }
     ];
 }

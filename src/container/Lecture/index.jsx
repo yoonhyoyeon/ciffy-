@@ -7,6 +7,7 @@ import styles from "./index.module.css"
 import LecturesList from './LecturesList';
 import { getSearchedLectures } from '@/utils';
 import Loading from '@/container/Loading';
+import { useSearchParams, useRouter } from 'next/navigation';
 
 const Lecture = ({lectures_data}) => {
     const [ value, setValue ] = useState('');
@@ -14,19 +15,29 @@ const Lecture = ({lectures_data}) => {
     const [ lectures, setLectures ] = useState();
     const [ keyword, setKeyword ] = useState('');
     const [ loading, setLoading ] = useState(false);
+    const searchParams = useSearchParams();
+    const router = useRouter();
 
     useEffect(() => {
         setLectures(lectures_data);
     },[lectures_data]);
     useEffect(() => {
-        onSubmit();
-    }, [sort]);
+        const keyword_params=searchParams.get('keyword');
+        if(keyword_params) {
+            setValue(keyword_params);
+            setKeyword(keyword_params);
+        }
+        else router.replace(`/lecture?keyword=${value}`);
+        submit(keyword_params);
+    }, [sort, searchParams, keyword]);
 
-    const onSubmit = async () => {
+    const submit = async (keyword_params) => {
+        console.log('실행');
         setLoading(true);
-        setLectures(await getSearchedLectures(lectures_data, value, sort));
+        setLectures(await getSearchedLectures(lectures_data, keyword_params, sort));
         setKeyword(value);
         setLoading(false);
+        console.log('실행 끝');
     }
     return (
         <div className={styles.container}>
@@ -35,8 +46,12 @@ const Lecture = ({lectures_data}) => {
                 <div className={styles.input_wrap}>
                     <SearchInput 
                         placeholder="과목명 또는 교수명을 입력하세요" 
-                        setValue={setValue} 
-                        onSubmit={onSubmit} 
+                        setValue={setValue}
+                        value={value}
+                        onSubmit={() => {
+                            router.replace(`/lecture?keyword=${value}`);
+                            submit(value);
+                        }} 
                     />
                 </div>
             </div>
@@ -53,8 +68,8 @@ const Lecture = ({lectures_data}) => {
                 </div>
                 { !loading ? 
                         <LecturesList 
-                        lectures={lectures}
-                        keyword={keyword}
+                            lectures={lectures}
+                            keyword={keyword}
                     /> : <Loading />
                 }
             </div>

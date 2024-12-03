@@ -11,14 +11,15 @@ const Table = ({data}) => {
                 sector="선택영역"
                 credit="학점"
                 checked={false}
+                isHeader
             />
             { data.map((v, i) => (
                 <TableRow 
                     key={i}
-                    code={v.code} 
-                    name={v.name} 
-                    type={v.type}
-                    sector={v.sector}
+                    code={v.course_code} 
+                    name={v.course_name} 
+                    type={v.course_type}
+                    sector={v.choice}
                     credit={v.credit}
                     checked={v.checked}
                 />

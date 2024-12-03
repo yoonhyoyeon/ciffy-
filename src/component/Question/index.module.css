@@ -35,17 +35,17 @@
     line-height: 150%;
 }
 .container .input_wrap h4:first-child {
-    color: var(--color-blue-1);
+    color: var(--color-purple);
 }
 .container .input_wrap h4:last-child {
-    color: var(--color-purple);
+    color: var(--color-blue-1);
 }
 .container .input_wrap .radio {
     display: inline-block;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: var(--color-blue-1);
+    background-color: var(--color-purple);
     opacity: .1;
     cursor: pointer;
     transition: .3s ease;
@@ -54,7 +54,7 @@
     opacity: .7;
 }
 .container .input_wrap .radio:nth-of-type(n+4) {
-    background-color: var(--color-purple);
+    background-color: var(--color-blue-1);
 }
 .container .input_wrap .radio:nth-of-type(3) {
     background-color: var(--color-gray);

@@ -23,7 +23,7 @@ export const LAODING_MESSAGE = [
     '시피가 곧 시간표를 추천 드릴게요!',
 ];
 
-export const GRADUATION_RQUIRED = [
+export const GRADUATION_RQUIRED1 = [ // 교양선택
     {
         course_code: 9489,
         course_name: '세계사: 인간과 문명',
@@ -45,27 +45,8 @@ export const GRADUATION_RQUIRED = [
         choice: '자연과과학기술',
         credit: 2
     },
-    {
-        course_code: 2647,
-        course_name: '일반물리학및실험1',
-        course_type: '기교',
-        choice: '생명과 과학',
-        credit: 3
-    },
-    {
-        course_code: 304,
-        course_name: '공업수학1',
-        course_type: '기필',
-        choice: '',
-        credit: 3
-    },
-    {
-        course_code: 6098,
-        course_name: '기초미적분학',
-        course_type: '기필',
-        choice: '자연과과학기술',
-        credit: 3
-    },
+];
+export const GRADUATION_RQUIRED2 = [ //공통교양필수
     {
         course_code: 10352,
         course_name: 'English Listening Practice 1',
@@ -88,17 +69,17 @@ export const GRADUATION_RQUIRED = [
         credit: 1
     },
     {
-        course_code: 11182,
-        course_name: '대학생활과진로탐색',
+        course_code: 10351,
+        course_name: '대학생활과진로설계',
         course_type: '교필',
-        choice: '',
+        choice: '역량강화',
         credit: 1
     },
     {
-        course_code: 11183,
-        course_name: '취창업과진로설계',
-        course_type: '공필',
-        choice: '',
+        course_code: 9030,
+        course_name: '취업역량개발론',
+        course_type: '교필',
+        choice: '역량강화',
         credit: 1
     },
     {
@@ -122,8 +103,105 @@ export const GRADUATION_RQUIRED = [
         choice: '',
         credit: 3
     },
+];
 
-]
+export const GRADUATION_RQUIRED3 = [ //학문기초교양필수
+    {
+        course_code: 2647,
+        course_name: '일반물리학및실험1',
+        course_type: '기교',
+        choice: '생명과 과학',
+        credit: 3
+    },
+    {
+        course_code: 304,
+        course_name: '공업수학1',
+        course_type: '기필',
+        choice: '',
+        credit: 3
+    },
+    {
+        course_code: 6098,
+        course_name: '기초미적분학',
+        course_type: '기필',
+        choice: '자연과과학기술',
+        credit: 3
+    },
+];
+
+
+export const GRADUATION_RQUIRED4 = [ //전공필수
+    {
+        course_code: 9912,
+        course_name: 'C프로그래밍및실습',
+        course_type: '전필',
+        choice: '',
+        credit: 3
+    },
+    {
+        course_code: 9913,
+        course_name: '고급C프로그래밍및실습',
+        course_type: '전필',
+        choice: '',
+        credit: 3
+    },
+    {
+        course_code: 9914,
+        course_name: '공학설계기초',
+        course_type: '전필',
+        choice: '',
+        credit: 3
+    },
+    {
+        course_code: 4118,
+        course_name: '디지털시스템',
+        course_type: '전필',
+        choice: '',
+        credit: 3
+    },
+    {
+        course_code: 9952,
+        course_name: '자료구조및실습',
+        course_type: '전필',
+        choice: '',
+        credit: 3
+    },
+    {
+        course_code: 3278,
+        course_name: '컴퓨터구조',
+        course_type: '전필',
+        choice: '',
+        credit: 3
+    },
+    {
+        course_code: 4310,
+        course_name: '운영체제',
+        course_type: '전필',
+        choice: '',
+        credit: 3
+    },
+    {
+        course_code: 3278,
+        course_name: '컴퓨터구조',
+        course_type: '전필',
+        choice: '',
+        credit: 3
+    },
+    {
+        course_code: 3284,
+        course_name: '컴퓨터네트워크',
+        course_type: '전필',
+        choice: '',
+        credit: 3
+    },
+    {
+        course_code: 3284,
+        course_name: 'Capstone디자인(산학협력프로젝트)',
+        course_type: '전필',
+        choice: '',
+        credit: 6
+    },
+];
 
 export const GraduationTitle = {
     0: '전체',

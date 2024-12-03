@@ -1,10 +1,11 @@
 import styles from './index.module.css';
+import Link from 'next/link';
 
-const TableRow = ({code, name, type, sector, credit, checked}) => {
+const TableRow = ({code, name, type, sector, credit, checked, isHeader}) => {
     return (
         <div className={`${styles.container} ${checked ? styles.checked : null}`}>
             <div className={styles.cell}>{code}</div>
-            <div className={styles.cell}>{name}</div>
+            <div className={styles.cell}><Link href={`/lecture?keyword=${name}`}>{name}</Link></div>
             <div className={styles.cell}>{type}</div>
             <div className={styles.cell}>{sector}</div>
             <div className={styles.cell}>{credit}</div>

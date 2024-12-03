@@ -1,10 +1,8 @@
 import GraduationDetail from '@/container/GraduationDetail';
 import { GraduationTitle } from '@/constants';
-
-const getData = async() => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    return "hi";
-}
+import { cookies } from 'next/headers';
+import { getTakedLectures } from '@/service';
+import { transformTakedLectures } from '@/utils';
 
 export const generateMetadata = async ({params}) => {
     const { id } = await params;
@@ -12,10 +10,15 @@ export const generateMetadata = async ({params}) => {
 }
 
 const GraduationDetailPage = async ({params}) => {
-    const a= await getData();
+    const cookieStore = await cookies();
+    const user_id = cookieStore.get('id').value;
+    const takedLectures = await getTakedLectures(user_id);
+    
+    const data = transformTakedLectures(takedLectures);
+    console.log(data);
     const { id } = await params;
     return (
-        <GraduationDetail id={id} title={GraduationTitle[id]}/>
+        <GraduationDetail user_id={id} page_data={data[id]}/>
     )
 }
 
