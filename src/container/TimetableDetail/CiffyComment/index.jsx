@@ -12,7 +12,9 @@ const CiffyComment = ({ai_comment, choice_id}) => {
         else if(choice_id==3) return 79;
     };
     const comment = () => {
-        return 'comment';
+        if(choice_id==1) return "아침 수업이 없고 전공수업이 많으며 영어 수업이 없는 시간표 입니다.";
+        else if(choice_id==2) return "아침 수업이 많으나, 전공수업이 많으며 영어 수업이 없는 시간표 입니다.";
+        else if(choice_id==3) return "아침 수업이 없으나, 공강이 없고, 전공수업이 많으며, 영어 수업이 있는 시간표 입니다.";
     }
 
     return (

@@ -8,14 +8,6 @@ const WhenInput = ({when, setWhen}) => {
                 setWhen(e.target.value)
             }}>
                 <option value="24년 2학기">24년 2학기</option>
-                <option value="24년 여름">24년 여름</option>
-                <option value="24년 1학기">24년 1학기</option>
-                <option value="23년 겨울">23년 겨울</option>
-                <option value="23년 2학기">23년 2학기</option>
-                <option value="23년 여름">23년 여름</option>
-                <option value="23년 1학기">23년 1학기</option>
-                <option value="22년 겨울">22년 겨울</option>
-                <option value="22년 2학기">22년 2학기</option>
             </select>
         </div>
     )
