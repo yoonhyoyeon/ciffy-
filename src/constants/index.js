@@ -3,7 +3,7 @@ export const TEAM_FIELD = ['없음', '보통', '많음'];
 export const GRADE_FIELD = ['너그러움', '보통', '깐깐함'];
 
 export const SURVEY_QUESTON = [
-    '팀플 수업이 많았으면 좋겠다.', 
+    '아침 수업이 적었으면 좋겠다.', 
     '시험보단 과제로 평가가 되었으면 좋겠다.', 
     '수업 내용이 실제 업무에 도움이 되는 수업을 선호한다.', 
     '수업이 이론보다는 실습 위주로 진행되면 좋겠다.', 
@@ -213,8 +213,277 @@ export const GraduationTitle = {
     6: '영어졸업인증',
 };
 
+export const WEEK = {
+    "월": "mon",
+    "화": "tue",
+    "수": "wed",
+    "목": "thu",
+    "금": "fri",
+}
 
+export const garadata = [
+    {
+      "choice_id": 1,
+      "timetable": [
+        {
+          "department": "컴퓨터공학과",
+          "course_name": "이산수학및프로그래밍",
+          "type": "전공선택",
+          "credits": 3.0,
+          "time": "화 목 10:30~12:00",
+          "location": "센B209",
+          "professor": "김해광"
+        },
+        {
+          "department": "소프트웨어학과",
+          "course_name": "선형대수및프로그래밍",
+          "type": "전공선택",
+          "credits": 3.0,
+          "time": "화 목 13:30~15:00",
+          "location": "센B114",
+          "professor": "이종원"
+        },
+        {
+          "department": "소프트웨어학과",
+          "course_name": "컴퓨터그래픽스",
+          "type": "전공선택",
+          "credits": 3.0,
+          "time": "월 수 12:00~13:30",
+          "location": "센B111",
+          "professor": "박상일"
+        },
+        {
+          "department": "컴퓨터공학과",
+          "course_name": "Unix프로그래밍",
+          "type": "전공선택",
+          "credits": 3.0,
+          "time": "월 수 15:00~17:00",
+          "location": "센B201",
+          "professor": "노재춘"
+        },
+        {
+          "department": "대양휴머니티칼리지",
+          "course_name": "동서양의사상과윤리",
+          "type": "균형교양필수",
+          "credits": 3.0,
+          "time": "화 18:00~19:00",
+          "location": "광207",
+          "professor": "박승원"
+        },
+        {
+          "department": "대양휴머니티칼리지",
+          "course_name": "경영학",
+          "type": "균형교양필수",
+          "credits": 3.0,
+          "time": "목 18:00~19:00",
+          "location": "집301",
+          "professor": "이지훈"
+        },
+        {
+          "department": "대양휴머니티칼리지",
+          "course_name": "지구환경과기후변화",
+          "type": "균형교양필수",
+          "credits": 3.0,
+          "time": "목 19:00~20:00",
+          "location": "광202",
+          "professor": "전의찬"
+        }
+      ]
+    },
+    {
+      "choice_id": 2,
+      "timetable": [
+        {
+          "department": "컴퓨터공학과",
+          "course_name": "선형대수및프로그래밍",
+          "type": "전공선택",
+          "credits": 3.0,
+          "time": "월 수 12:00~13:30",
+          "location": "센B103",
+          "professor": "Mohammad Jalil Piran"
+        },
+        {
+          "department": "대양휴머니티칼리지",
+          "course_name": "동서양의사상과윤리",
+          "type": "균형교양필수",
+          "credits": 3.0,
+          "time": "화 18:00~19:00",
+          "location": "광207",
+          "professor": "박승원"
+        },
+        {
+          "department": "대양휴머니티칼리지",
+          "course_name": "생명과학의이해",
+          "type": "균형교양필수",
+          "credits": 3.0,
+          "time": "목 19:00~20:00",
+          "location": "광208",
+          "professor": "임태규"
+        },
+        {
+          "department": "소프트웨어학과",
+          "course_name": "데이터베이스프로그래밍",
+          "type": "전공선택",
+          "credits": 3.0,
+          "time": "화 목 10:30~12:00",
+          "location": "센B112",
+          "professor": "변재욱"
+        },
+        {
+          "department": "컴퓨터공학과",
+          "course_name": "문제해결및실습:JAVA",
+          "type": "전공선택",
+          "credits": 3.0,
+          "time": "수 금 09:00~10:30",
+          "location": "센B203",
+          "professor": "Rajendra Dhakal"
+        },
+        {
+          "department": "소프트웨어학과",
+          "course_name": "소프트웨어공학",
+          "type": "전공선택",
+          "credits": 3.0,
+          "time": "화 목 09:00~10:30",
+          "location": "센B114",
+          "professor": "이경호"
+        }
+      ]
+    },
+    {
+      "choice_id": 3,
+      "timetable": [
+        {
+          "department": "대양휴머니티칼리지",
+          "course_name": "융합예술의이해",
+          "type": "균형교양필수",
+          "credits": 3.0,
+          "time": "화 19:00~20:00",
+          "location": "집301",
+          "professor": "박철"
+        },
+        {
+          "department": "대양휴머니티칼리지",
+          "course_name": "미디어빅뱅과방송",
+          "type": "균형교양필수",
+          "credits": 3.0,
+          "time": "목 18:00~19:00",
+          "location": "집401",
+          "professor": "신하얀"
+        },
+        {
+          "department": "소프트웨어학과",
+          "course_name": "선형대수및프로그래밍",
+          "type": "전공선택",
+          "credits": 3.0,
+          "time": "화 목 13:30~15:00",
+          "location": "센B114",
+          "professor": "이종원"
+        },
+        {
+          "department": "대양휴머니티칼리지",
+          "course_name": "대학영어",
+          "type": "공통교양필수",
+          "credits": 3.0,
+          "time": "금 11:00~13:00",
+          "location": "Lab-D",
+          "professor": "옥성수"
+        },
+        {
+          "department": "경영학부",
+          "course_name": "원가회계",
+          "type": "전공선택",
+          "credits": 3.0,
+          "time": "월 수 15:00~16:30",
+          "location": "광429",
+          "professor": "황세준"
+        },
+        {
+          "department": "컴퓨터공학과",
+          "course_name": "XML프로그래밍",
+          "type": "전공선택",
+          "credits": 3.0,
+          "time": "월 수 10:30~12:00",
+          "location": "센B206",
+          "professor": "윤은일"
+        },
+        {
+          "department": "컴퓨터공학과",
+          "course_name": "인공지능",
+          "type": "전공선택",
+          "credits": 3.0,
+          "time": "화 목 12:00~13:30",
+          "location": "센B103",
+          "professor": "Mohammad Jalil Piran"
+        }
+      ]
+    }
+]
 
+export const aaaaa = [
+    {
+      "department": "대양휴머니티칼리지",
+      "course_name": "경영학",
+      "type": "균형교양필수",
+      "credits": 3,
+      "time": "목 18:00~19:00",
+      "location": "집301",
+      "professor": "이지훈"
+    },
+    {
+      "department": "대양휴머니티칼리지",
+      "course_name": "현대사회와법",
+      "type": "균형교양필수",
+      "credits": 3,
+      "time": "목 18:00~19:00",
+      "location": "집502",
+      "professor": "이재교"
+    },
+    {
+      "department": "대양휴머니티칼리지",
+      "course_name": "성서와기독교",
+      "type": "균형교양필수",
+      "credits": 3,
+      "time": "화 18:00~19:00",
+      "location": "광203",
+      "professor": "이태하"
+    },
+    {
+      "department": "컴퓨터공학과",
+      "course_name": "선형대수및프로그래밍",
+      "type": "전공선택",
+      "credits": 3,
+      "time": "화 목 10:30~12:00",
+      "location": "센B103",
+      "professor": "이영렬"
+    },
+    {
+      "department": "컴퓨터공학과",
+      "course_name": "문제해결및실습:JAVA",
+      "type": "전공선택",
+      "credits": 3,
+      "time": "화 목 13:30~15:00",
+      "location": "센B202",
+      "professor": "김도년"
+    },
+    {
+      "department": "소프트웨어학과",
+      "course_name": "데이터베이스프로그래밍",
+      "type": "전공선택",
+      "credits": 3,
+      "time": "화 목 10:30~12:00",
+      "location": "센B112",
+      "professor": "변재욱"
+    },
+    {
+      "department": "소프트웨어학과",
+      "course_name": "이산수학및프로그래밍",
+      "type": "전공선택",
+      "credits": 3,
+      "time": "월 수 12:00~13:30",
+      "location": "센B112",
+      "professor": "이은상"
+    }
+  ]
 export const timetableList = [
     {
         mon: [

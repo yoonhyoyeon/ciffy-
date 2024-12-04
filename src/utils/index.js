@@ -1,4 +1,4 @@
-import { GRADUATION_RQUIRED1, GRADUATION_RQUIRED2, GRADUATION_RQUIRED3, GRADUATION_RQUIRED4 } from '@/constants';
+import { GRADUATION_RQUIRED1, GRADUATION_RQUIRED2, GRADUATION_RQUIRED3, GRADUATION_RQUIRED4, WEEK } from '@/constants';
 
 export const rand = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -34,10 +34,12 @@ export const getTakedCredit = (takedLectures) => {
     return takedLectures.reduce((acc, v) => !isFailedLecture(v) ? acc+v.credit : acc, 0)
 }
 
+/* course_name을 이름으로 가지는 강의가 Lectures 배열에 있는 지 확인 */
 export const findLecture = (course_name, Lectures) => {
     const result = Lectures.find((el) => el.course_name === course_name);
     return result!==undefined;
 }
+
 /* 기이수과목 "졸업요건 페이지" 양식에 맞게 데이터 가공해서 반환 */
 export const transformTakedLectures = (takedLectures) => {
     const taked1 = takedLectures.filter((v) => v.course_type==="전필"&&!isFailedLecture(v)); // 전필
@@ -62,8 +64,6 @@ export const transformTakedLectures = (takedLectures) => {
     const recommended4 = GRADUATION_RQUIRED3.filter((v) => {
         return !findLecture(v.course_name, taked5)&&v.course_name!=='일반물리학및실험1';
     }); ///학문기초교양필수 추천
-
-
 
     return [
         {
@@ -123,4 +123,50 @@ export const transformTakedLectures = (takedLectures) => {
             data: 0
         }
     ];
+}
+
+export const convertTimeForm = (time) => { //12:00~13:00 -> Object
+    return time.split(/~|:/)
+}
+
+export const transformTimetable = (timetable) => {
+    let result = {
+        choice_id: timetable.choice_id,
+        mon: [
+
+        ],
+        tue: [
+
+        ],
+        wed: [
+
+        ],
+        thu: [
+
+        ],
+        fri: [
+
+        ],
+        online: [
+
+        ]
+    }
+    timetable.timetable.forEach((v, i) => {
+        const time_data=v.time.split(' ');
+        const time_arr = convertTimeForm(time_data[time_data.length-1])
+        time_data.forEach((time, i) => {
+            if(i<time_data.length-1) result[WEEK[time]].push({
+                name: v.course_name,
+                professor: v.professor,
+                classroom: v.location,
+                time: {
+                    start: parseInt(time_arr[0]) + parseInt(time_arr[1])/60,
+                    end: parseInt(time_arr[2]) + parseInt(time_arr[3])/60
+                },
+                credit: v.credits
+            })
+        });
+    });
+    console.log(result);
+    return result;
 }

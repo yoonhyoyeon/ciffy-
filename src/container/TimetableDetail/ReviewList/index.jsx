@@ -1,71 +1,26 @@
 import ReviewItem from '@/component/ReviewItem';
 import styles from './index.module.css';
-import Link from 'next/link';
+import { rand } from '@/utils';
 
-const ReviewList = () => {
+const ReviewList = ({lectures}) => {
     return (
         <div className={styles.container}>
             <div className={styles.list}>
-                <div className={styles.item}>
-                    <Link href={`/lecture/detail/${8}?name=${"이산 수학 프로그래밍"}&professor=${"김해광"}`}>
-                        <ReviewItem 
-                            name="일본어2"
-                            professor="김영주"
-                            rating={4.2}
-                            preview="과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것 과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것"
-                        />
-                    </Link>
-                </div>
-                <div className={styles.item}>
-                    <Link href={`/lecture/detail/${8}?name=${"이산 수학 프로그래밍"}&professor=${"김해광"}`}>
-                        <ReviewItem 
-                            name="일본어2"
-                            professor="김영주"
-                            rating={4.2}
-                            preview="과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것 과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것"
-                        />
-                    </Link>
-                </div>
-                <div className={styles.item}>
-                    <Link href={`/lecture/detail/${8}?name=${"이산 수학 프로그래밍"}&professor=${"김해광"}`}>
-                        <ReviewItem 
-                            name="일본어2"
-                            professor="김영주"
-                            rating={4.2}
-                            preview="과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것 과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것"
-                        />
-                    </Link>
-                </div>
-                <div className={styles.item}>
-                    <Link href={`/lecture/detail/${8}?name=${"이산 수학 프로그래밍"}&professor=${"김해광"}`}>
-                        <ReviewItem 
-                            name="일본어2"
-                            professor="김영주"
-                            rating={4.2}
-                            preview="과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것 과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것"
-                        />
-                    </Link>
-                </div>
-                <div className={styles.item}>
-                    <Link href={`/lecture/detail/${8}?name=${"이산 수학 프로그래밍"}&professor=${"김해광"}`}>
-                        <ReviewItem 
-                            name="일본어2"
-                            professor="김영주"
-                            rating={4.2}
-                            preview="과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것 과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것"
-                        />
-                    </Link>
-                </div>
-                <div className={styles.item}>
-                    <Link href={`/lecture/detail/${8}?name=${"이산 수학 프로그래밍"}&professor=${"김해광"}`}>
-                        <ReviewItem 
-                            name="일본어2"
-                            professor="김영주"
-                            rating={4.2}
-                            preview="과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것 과제도 교재 본문 읽고 녹음하는거라 어렵지 않고 한자를 안써도 돼서 좋습니다. 수업 잘 듣고 본문 잘 외우면 괜찮은 것"
-                        />
-                    </Link>
-                </div>
+                {
+                    lectures?.map((v,i) => {
+                        return (
+                            <div key={i} className={styles.item}>
+                                 <ReviewItem 
+                                    name={v.course_name}
+                                    professor={v.professor}
+                                    rating={i===1? 2:rand(3,5)}
+                                    preview={v.time}
+                                />
+                            </div>
+                           
+                        )
+                    })
+                }
             </div>
         </div>
     );

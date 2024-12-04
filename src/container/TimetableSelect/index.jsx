@@ -6,7 +6,7 @@ import TimetableSlider from '@/component/TimetableSlider';
 import Button from '@/component/Button';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { timetableList } from '@/constants'
+import { garadata } from '@/constants';
 
 const TimetableSelect = () => {
     const router = useRouter();
@@ -14,30 +14,25 @@ const TimetableSelect = () => {
     const [ selected, setSelected ] = useState(null);
 
     useEffect(() => {
-        if(!window.sessionStorage.getItem('timetables')) {
-            console.log('시간표 데이터가 없어 임시로 박을게요');
-            window.sessionStorage.setItem('timetables', JSON.stringify(timetableList));
+        if(window.localStorage.getItem('timetables')) {
+            setTimetables(JSON.parse(window.localStorage.getItem('timetables')));
+            console.log(JSON.parse(window.localStorage.getItem('timetables')));
         }
-        else {
-            console.log('시간표 불러옴');
-            setTimetables(JSON.parse(window.sessionStorage.getItem('timetables')));
-        }
-        if(!window.sessionStorage.getItem('selected')) {
-            console.log('선택된 시간표가 없습니다.');
-        }
-        else {
-            setSelected(JSON.parse(window.sessionStorage.getItem('selected')));
+        
+        if(window.localStorage.getItem('selected')) {
+            setSelected(JSON.parse(window.localStorage.getItem('selected')));
         }
     }, []);
 
     useEffect(() => {
-        if(selected!==null) window.sessionStorage.setItem('selected', JSON.stringify(selected));
+        if(selected!==null) window.localStorage.setItem('selected', JSON.stringify(selected));
     }, [selected]);
+
     return (
         <div className={styles.container}>
             <div className={styles.contents}>
                 <h1 className={styles.title}>시간표 완성!</h1>
-                <TimetableSlider timetables={timetables} selected={selected} setSelected={setSelected}/>
+                <TimetableSlider timetables={garadata} selected={selected} setSelected={setSelected}/>
                 <Button 
                     disabled={selected===null}
                     size="small" 

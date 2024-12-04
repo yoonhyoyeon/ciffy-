@@ -18,6 +18,7 @@
 .container .left_area .btn_wrapper {
     width: 82%;
     display: flex;
+    margin-top: 25px;
 }
 
 .container .right_area {

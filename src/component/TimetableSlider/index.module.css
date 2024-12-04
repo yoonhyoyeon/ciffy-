@@ -1,8 +1,16 @@
 .container {
     width: 100%;
     margin-bottom: 60px;
-    overflow: visible;
+    overflow-y:scroll;
+    white-space: nowrap;
+    overflow-y: visible;
 }
+.container .contents_wrap {
+    justify-content: center;
+    display: flex;
+}
+
 .container .item {
-    width: 90%!important;
+    min-width: 380px;
+    margin: 0 20px;
 }

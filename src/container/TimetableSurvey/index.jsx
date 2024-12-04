@@ -3,9 +3,9 @@ import styles from './index.module.css';
 import { useEffect, useState } from 'react';
 import Button from '@/component/Button';
 import Question from '@/component/Question';
-import { SURVEY_QUESTON, LAODING_MESSAGE } from '@/constants';
+import { SURVEY_QUESTON, LAODING_MESSAGE, aaaaa, garadata } from '@/constants';
 import { rand } from '@/utils';
-import { submitQuestion } from '@/service';
+import { getRecommendTimetables, submitQuestion } from '@/service';
 import { useRouter } from 'next/navigation';
 
 const TimetableSurvey = () => {
@@ -23,7 +23,7 @@ const TimetableSurvey = () => {
 
     useEffect(() => {
         if(loading_state > 4) router.push('/timetable/create/select');
-    })
+    }, [loading_state])
 
     const startLoading = () => {
         const timer = setTimeout(() => {
@@ -39,10 +39,12 @@ const TimetableSurvey = () => {
     }
     const submit = async () => {
         const result = await submitQuestion(userinfo.id, scores);
-        console.log(result);
         if(result) {
+            localStorage.setItem('ai_comment', result.ai_comment);
             setLoading(true);
             startLoading();
+            const recommendedTimetables = await getRecommendTimetables(userinfo.id);
+            localStorage.setItem('timetables', JSON.stringify(garadata));
         }
     }
     return (

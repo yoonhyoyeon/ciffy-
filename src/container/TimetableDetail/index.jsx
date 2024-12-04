@@ -7,6 +7,9 @@ import CiffyComment from './CiffyComment';
 import ReviewList from './ReviewList';
 import ExpectedGraduation from './ExpectedGraduation';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { transformTakedLectures, transformTimetable, rand } from '@/utils';
+import { useRouter } from 'next/navigation';
 
 const dataList = [
     {
@@ -53,9 +56,47 @@ const dataList = [
     }
 ];
 
-const TimetableDetail = () => {
+const TimetableDetail = ({takedLectures}) => {
     const pathname = usePathname();
-    console.log(pathname);
+    const router = useRouter();
+    const [ ai_comment, setAi_comment] = useState('');
+    const [ timetable_old, setTimetable_old ] = useState([]);
+    const [ timetable, setTimetable ] = useState({
+        choice_id: '',
+        mon: [
+
+        ],
+        tue: [
+
+        ],
+        wed: [
+
+        ],
+        thu: [
+
+        ],
+        fri: [
+
+        ],
+        online: [
+
+        ]
+    });
+    const dataList = () => {
+        let result = transformTakedLectures(takedLectures);
+
+    }
+
+    useEffect(() => {
+        const selected = JSON.parse(localStorage.getItem('selected'));
+        setTimetable_old(JSON.parse(localStorage.getItem('timetables')).filter((v) => {
+            return v.choice_id===selected;
+        })[0]);
+        setTimetable(transformTimetable(JSON.parse(localStorage.getItem('timetables')).filter((v) => {
+            return v.choice_id===selected;
+        })[0]));
+        setAi_comment(localStorage.getItem('ai_comment'))
+    }, [])
 
     const btn_style = {
         fontSize: '16px',
@@ -67,7 +108,7 @@ const TimetableDetail = () => {
     return (
         <div className={styles.container}>
             <div className={styles.left_area}>
-                <Timetable data={timetableList[0]} selected/>
+                <Timetable data={timetable} selected/>
                 <div className={styles.btn_wrapper}>
                     <Button
                         customStyles={{
@@ -81,23 +122,32 @@ const TimetableDetail = () => {
                     </Button>
                     { pathname === '/timetable/create/select/detail' ?
                         <Button
+                            onClick={() => {
+                                router.push('/mypage')
+                            }}
                             customStyles={{
                                 flex: 2,
                                 ...btn_style
                             }}
                             isShadow
                         >
-                            시간표 선택
+                            시간표 저장
                         </Button> : null
                     }
                 </div>
             </div>
             <div className={styles.right_area}>
-                <CiffyComment />
+                <CiffyComment ai_comment={ai_comment} choice_id={timetable.choice_id}/>
                 <h2>강의 후기</h2>
-                <ReviewList />
+                <ReviewList lectures={timetable_old.timetable} />
                 <h2>학기 종료 후 졸업요건 (예상)</h2>
-                <ExpectedGraduation dataList={dataList} />
+                <ExpectedGraduation dataList={transformTakedLectures(takedLectures).map((v) => (v.id==4||v.id==5||v.id==6?
+                    v:
+                    {
+                        ...v,
+                        data: v.data + 3
+                    }
+                ))} />
             </div>
         </div>
     );

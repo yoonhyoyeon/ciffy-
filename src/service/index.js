@@ -117,7 +117,7 @@ export const getTakedLectures = async(student_id) => {
 /* ai timetable */
 
 export const submitQuestion = async (id, value) => {
-    const response = await fetch('/api/submit-questions', {
+    const response = await fetch('/api/submit-questions-new', {
         method: 'POST',
         headers: {
             'accept': 'application/json',
@@ -139,6 +139,42 @@ export const submitQuestion = async (id, value) => {
         return false;
     }
     else {
+        return result;
+    }
+}
+
+export const getRecommendTimetables = async (student_id) => {
+    const response = await fetch(`/api/generate-timetable/${student_id}`);
+    const result = await response.json();
+
+    if(!response.ok) {
+        alert('시간표를 추천하는 데에 오류가 발생했습니다.');
+        return [];
+    }
+    else {
+        return result;
+    }
+}
+
+export const saveTimetable = async (timetable, student_id,) => {
+    const response = await fetch('/api/submit-questions-new', {
+        method: 'POST',
+        headers: {
+            'accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            student_id: student_id,
+            ...timetable
+        })
+    });
+    const result = await response.json();
+    if(!response.ok) {
+        alert('시간표 DB저장 실패');
+        return false;
+    }
+    else {
+        alert('시간표를 저장했습니다.\n마이페이지에서 확인하세요!');
         return true;
     }
 }

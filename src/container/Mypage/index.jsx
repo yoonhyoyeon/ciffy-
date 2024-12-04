@@ -5,15 +5,19 @@ import { useEffect, useState } from 'react';
 import WhenInput from '@/component/WhenInput';
 import UserInfo from '@/component/UserInfo';
 import MypageTable from '@/component/MypageTable';
-import TimetableList from './TimetableList'
-import { timetableList } from '@/constants'
+import TimetableList from './TimetableList';
+import { transformTimetable } from '@/utils';
 
 const Mypage = ({takedLectures}) => {
     const [ when, setWhen ] = useState("24년 2학기");
+    const [ timetableList, setTimetableList] = useState([]);
+    
     
     const [ userinfo, setUserinfo ] = useState({});
     useEffect(() => {
         setUserinfo(JSON.parse(localStorage?.getItem('user_info')));
+        setTimetableList(JSON.parse(localStorage?.getItem('timetables')));
+        console.log(timetableList)
     }, []);
     return (
         <div className={styles.container}>
