@@ -10,6 +10,7 @@ const TimetableDetailPage = async() => {
     const cookieStore = await cookies();
     const id = cookieStore.get('id').value;
     const takedLectures = await getTakedLectures(id);
+    console.log(takedLectures);
     return <TimetableDetail takedLectures={takedLectures}/>
 }
 

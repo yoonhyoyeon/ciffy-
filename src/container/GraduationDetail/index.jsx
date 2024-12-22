@@ -15,7 +15,7 @@ const GraduationDetail = ({page_data}) => {
     const requiredLectures_checked = requiredLectures?.map((v) => {
         return {
             ...v,
-            checked: findLecture(v.course_name, takedLectures) || v.course_name === '일반물리학및실험1'
+            checked: findLecture(v.course_name, takedLectures)
         }
     });
     const recommendedLectures_checked = recommendedLectures?.map((v) => {

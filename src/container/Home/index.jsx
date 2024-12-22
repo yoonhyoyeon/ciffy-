@@ -12,25 +12,24 @@ const Home = () => {
     const router = useRouter();
     const [ opened, setOpend ] = useState(false);
 
+    const CheckUploaded = async (student_id) => {
+        const response = await fetch(`/api/get-course-data?student_id=${student_id}`);
+        const result = await response.json();
+        if(result.status === 'success') {
+            if(result.data.length > 0) setOpend(false);
+            else setOpend(true);
+        }
+        else {
+            setOpend(true);
+        }
+    }
+
     useEffect(() => {
         const student_id=searchParams.get('isFirst');
-        const CheckUploaded = async () => {
-            const response = await fetch(`/api/get-course-data?student_id=${student_id}`);
-            const result = await response.json();
-            if(result.status === 'success') {
-                console.log('기이수 강의 목록 불러오기 성공');
-                console.log(result.data.length);
-                if(result.data.length>0) setOpend(false);
-                else setOpend(true);
-            }
-            else {
-                console.log('기이수 강의 목록 불러오기 실패: ', result);
-                setOpend(true);
-            }
-            router.push('/');
-        }
         if(student_id) {
-            CheckUploaded();
+            CheckUploaded(student_id).then(() => {
+                router.replace('/');
+            });
         }
     }, [searchParams]);
     return (

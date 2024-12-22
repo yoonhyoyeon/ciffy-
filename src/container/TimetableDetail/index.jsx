@@ -1,102 +1,43 @@
 "use client";
 import styles from './index.module.css';
 import Timetable from '@/component/Timetable';
-import { timetableList } from '@/constants';
 import Button from '@/component/Button';
 import CiffyComment from './CiffyComment';
 import ReviewList from './ReviewList';
 import ExpectedGraduation from './ExpectedGraduation';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { transformTakedLectures, transformTimetable, rand } from '@/utils';
+import { transformTakedLectures, transformTimetable, transformCourseType } from '@/utils';
 import { useRouter } from 'next/navigation';
-
-const dataList = [
-    {
-        id: 0,
-        title: '전체',
-        data: 94,
-        max: 140
-    },
-    {
-        id: 1,
-        title: '전공 필수',
-        data: 23,
-        max: 33
-    },
-    {
-        id: 2,
-        title: '전공 선택',
-        data: 24,
-        max: 39
-    },
-    {
-        id: 3,
-        title: '교양 선택',
-        data: 15,
-        max: 21
-    },
-    {
-        id: 4,
-        title: '공통 교향 필수',
-        data: 6,
-        max: 8
-    },
-    {
-        id: 5,
-        title: '학문 기초 교양 필수',
-        data: 3,
-        max: 3
-    },
-    {
-        id: 6,
-        title: '영어 졸업 인증',
-        data: 0,
-        max: -1,
-    }
-];
 
 const TimetableDetail = ({takedLectures}) => {
     const pathname = usePathname();
     const router = useRouter();
     const [ ai_comment, setAi_comment] = useState('');
-    const [ timetable_old, setTimetable_old ] = useState([]);
     const [ timetable, setTimetable ] = useState({
-        choice_id: '',
-        mon: [
-
-        ],
-        tue: [
-
-        ],
-        wed: [
-
-        ],
-        thu: [
-
-        ],
-        fri: [
-
-        ],
-        online: [
-
-        ]
+        choice_id: 0,
+        timetable: []
     });
-    const dataList = () => {
-        let result = transformTakedLectures(takedLectures);
-
-    }
 
     useEffect(() => {
         const selected = JSON.parse(localStorage.getItem('selected'));
-        setTimetable_old(JSON.parse(localStorage.getItem('timetables')).filter((v) => {
+        setTimetable(JSON.parse(localStorage.getItem('timetables')).filter((v) => {
             return v.choice_id===selected;
         })[0]);
-        setTimetable(transformTimetable(JSON.parse(localStorage.getItem('timetables')).filter((v) => {
-            return v.choice_id===selected;
-        })[0]));
         setAi_comment(localStorage.getItem('ai_comment'))
-    }, [])
+    }, []);
+
+    const timetable_ui_data = transformTimetable(timetable);
+    const expected_graduation_data = [ ...takedLectures, ...timetable.timetable.map((v) => {
+        return {
+            course_name: v.course_name,
+            course_type: transformCourseType(v.type),
+            credit: v.credits,
+            grade: 0,
+            grade_detail: 'P'
+        }
+    })];
+    console.log(timetable_ui_data);
 
     const btn_style = {
         fontSize: '16px',
@@ -108,7 +49,7 @@ const TimetableDetail = ({takedLectures}) => {
     return (
         <div className={styles.container}>
             <div className={styles.left_area}>
-                <Timetable data={timetable} selected/>
+                <Timetable data={timetable_ui_data} selected/>
                 <div className={styles.btn_wrapper}>
                     <Button
                         customStyles={{
@@ -139,15 +80,9 @@ const TimetableDetail = ({takedLectures}) => {
             <div className={styles.right_area}>
                 <CiffyComment ai_comment={ai_comment} choice_id={timetable.choice_id}/>
                 <h2>강의 후기</h2>
-                <ReviewList lectures={timetable_old.timetable} />
+                <ReviewList lectures={timetable.timetable} />
                 <h2>학기 종료 후 졸업요건 (예상)</h2>
-                <ExpectedGraduation dataList={transformTakedLectures(takedLectures).map((v) => (v.id==4||v.id==5||v.id==6?
-                    v:
-                    {
-                        ...v,
-                        data: v.data + 3
-                    }
-                ))} />
+                <ExpectedGraduation prev={transformTakedLectures(takedLectures)} dataList={transformTakedLectures(expected_graduation_data)} />
             </div>
         </div>
     );

@@ -12,7 +12,7 @@ const UserDropdown = ({closeNavbar, userid, username, checkAuth}) => {
         deleteCookie('access_token');
         deleteCookie('refresh_token');
         deleteCookie('id');
-        localStorage.removeItem('user_info');
+        localStorage.clear();
         // closeNavbar();
         router.push('/');
         // checkAuth();

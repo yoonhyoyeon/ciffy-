@@ -31,7 +31,7 @@ export const isFailedLecture = (lecture) => {
     return lecture.grade_detail === "FA" || lecture.grade_detail === "NP" || lecture.grade_detail === "F";
 }
 export const getTakedCredit = (takedLectures) => {
-    return takedLectures.reduce((acc, v) => !isFailedLecture(v) ? acc+v.credit : acc, 0)
+    return takedLectures.reduce((acc, v) => isFailedLecture(v) ? acc : acc+v.credit, 0)
 }
 
 /* course_name을 이름으로 가지는 강의가 Lectures 배열에 있는 지 확인 */
@@ -42,15 +42,31 @@ export const findLecture = (course_name, Lectures) => {
 
 /* 기이수과목 "졸업요건 페이지" 양식에 맞게 데이터 가공해서 반환 */
 export const transformTakedLectures = (takedLectures) => {
-    const taked1 = takedLectures.filter((v) => v.course_type==="전필"&&!isFailedLecture(v)); // 전필
-    const taked2 = takedLectures.filter((v) => v.course_type==="전선"&&!isFailedLecture(v)); // 전선
-    const taked3 = takedLectures.filter((v) => v.course_type.startsWith("교선")&&!isFailedLecture(v)); // 교선
-    const taked4 = takedLectures.filter((v) => {
-        return GRADUATION_RQUIRED2.find((el) => el.course_name===v.course_name)&&!isFailedLecture(v)
-    }); // 공통교양필수
-    const taked5 = takedLectures.filter((v) => {
-        return GRADUATION_RQUIRED3.find((el) => el.course_name===v.course_name||v.course_name==='일반물리학1')&&!isFailedLecture(v)
-    }); // 학문기초교양필수
+    
+    let taked1 = [];
+    let taked2 = [];
+    let taked3 = [];
+    let taked4 = [];
+    let taked5 = [];
+    takedLectures.forEach((v) => {
+        if(!isFailedLecture(v)) {
+            if(v.course_type==="전필") taked1.push(v);
+            else if(v.course_type==="전선") taked2.push(v);
+            else if(GRADUATION_RQUIRED2.find((el) => el.course_name===v.course_name)) taked4.push(v);
+            else if(GRADUATION_RQUIRED3.find((el) => el.course_name===v.course_name||v.course_name==='일반물리학1')) taked5.push(v);
+            else taked3.push(v);
+        }
+    });
+    console.log(taked3);
+    // const taked1 = takedLectures.filter((v) => v.course_type==="전필"&&!isFailedLecture(v)); // 전필
+    // const taked2 = takedLectures.filter((v) => v.course_type==="전선"&&!isFailedLecture(v)); // 전선
+    // const taked3 = takedLectures.filter((v) => v.course_type.startsWith("교선")&&!isFailedLecture(v)); // 교선
+    // const taked4 = takedLectures.filter((v) => {
+    //     return GRADUATION_RQUIRED2.find((el) => el.course_name===v.course_name)&&!isFailedLecture(v)
+    // }); // 공통교양필수
+    // const taked5 = takedLectures.filter((v) => {
+    //     return GRADUATION_RQUIRED3.find((el) => el.course_name===v.course_name||v.course_name==='일반물리학1')&&!isFailedLecture(v)
+    // }); // 학문기초교양필수
 
     const recommended1 = GRADUATION_RQUIRED4.filter((v) => {
         return !findLecture(v.course_name, taked1);
@@ -169,4 +185,16 @@ export const transformTimetable = (timetable) => {
     });
     console.log(result);
     return result;
+}
+
+export const transformCourseType = (type) => {
+    if(type==='전공필수') return '전필';
+    else if(type==='전공선택') return '전선';
+    else if(type==='균형교양필수') return '균필';
+    else if(type==='교양필수') return '교필';
+    else if(type==='교양선택1') return '교선1';
+    else if(type==='교양선택2') return '교선2';
+    else if(type==='학문기초교양필수') return '기교';
+    else if(type==='교양') return '교양';
+    else return type;
 }
