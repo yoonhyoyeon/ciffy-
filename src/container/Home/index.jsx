@@ -27,9 +27,7 @@ const Home = () => {
     useEffect(() => {
         const student_id=searchParams.get('isFirst');
         if(student_id) {
-            CheckUploaded(student_id).then(() => {
-                router.replace('/');
-            });
+            CheckUploaded(student_id);
         }
     }, [searchParams]);
     return (
