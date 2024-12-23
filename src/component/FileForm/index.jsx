@@ -1,10 +1,13 @@
+"use client";
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './index.module.css';
 import Button from '@/component/Button';
 
 const FileForm = () => {
     const [ uploadedFile,setUploadedFile ] = useState(null);
     const [ focus, setFocus ] = useState(false);
+    const router = useRouter();
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -21,6 +24,7 @@ const FileForm = () => {
         if(!response.ok) { 
             if(result.detail.startsWith("Database error: 1062 (23000)")) {
                 alert("기이수 과목이 이미 최신 상태입니다.");
+                router.replace('/graduation');
                 location.reload(true);
             }
             else {
@@ -30,6 +34,7 @@ const FileForm = () => {
         } 
         else {
             alert('정상적으로 업데이트 되었습니다:)');
+            router.replace('/graduation');
             location.reload(true);
         }
     }
